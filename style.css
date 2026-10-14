@@ -16,3 +16,14 @@ h3{color:#2f6c9e;border-bottom:1px solid #ddd;margin-top:18px}
 @font-face{font-family:"Noto Sans Runic";src:local("Noto Sans Runic"),url(fonts/NotoSansRunic-Regular.ttf) format("truetype");font-display:swap}
 .rune,.rb b,.logo .r,.fc .rune{font-family:"Noto Sans Runic",system-ui,sans-serif}
 .fc .back{font-size:26px;line-height:1.4}.fc .back .def{font-size:30px;font-weight:600;color:#1b4f7a}.fc .back .more{font-size:18px;color:#555;margin-top:10px}
+.hero{text-align:center;padding:28px 12px 18px}.hero h1{margin:0;font-size:40px;color:#1b4f7a}.hero h1 .rune{display:block;font-size:26px;margin:0 0 4px}
+.pitch{color:#555;font-size:17px;margin:8px 0 18px}.bigq{width:100%;max-width:640px;padding:14px 16px;font-size:18px;border:2px solid #2f6c9e;border-radius:6px}
+.lbl{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#e07b00;font-weight:700;margin-bottom:6px}.def{font-size:18px;margin:6px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid2 .card{margin:0}.wotd .ex{margin-left:0}
+.quick{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin:12px 0}.q{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:#222;margin:0}
+.q b{color:#1b4f7a;font-size:17px}.q span{font-size:14px;color:#555}.q:hover{box-shadow:0 2px 8px #0003}.soon{opacity:.6;cursor:default}
+.stats{text-align:center;color:#666;font-size:14px}textarea{width:100%;font-size:18px;padding:10px;border:1px solid #ccc;border-radius:4px}
+.runeout{font-size:32px;margin:12px 0;word-break:break-all}
+nav{display:flex;flex-wrap:wrap}nav a{white-space:nowrap}
+@media(max-width:700px){header{flex-wrap:wrap;gap:8px}#q{order:3;flex-basis:100%}nav{margin-left:auto}nav a{margin-left:8px;font-size:14px}.grid2{grid-template-columns:1fr}.hero h1{font-size:32px}.bigq{font-size:16px}body[data-page=home] #q{display:none}}
+body[data-page=home] header #q{visibility:hidden}@media(max-width:700px){body[data-page=home] header #q{display:none}}
