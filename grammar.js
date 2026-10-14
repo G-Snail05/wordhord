@@ -1,6 +1,6 @@
 // Grammar section: hub + guides. Example words written as {{word|gloss|ipa}} link to dictionary entries.
 const GUIDES=[{id:'letters',title:'Letters & Pronunciation',level:'Beginner',blurb:'The alphabet, the special letters þ ð æ ƿ, and how every sound is pronounced. Start here.',live:true},
-{id:'nouns',title:'Nouns, Cases & Gender',level:'Beginner',blurb:'Why words change their endings: nominative, accusative, genitive, dative.'},
+{id:'nouns',title:'Nouns, Cases & Gender',level:'Beginner',blurb:'Why words change their endings: the four cases, three genders, and the word for “the”.',live:true},
 {id:'pronouns',title:'Pronouns & “the”',level:'Beginner',blurb:'iċ, þū, hē, hēo, hit, and the many forms of se/sēo/þæt.'},
 {id:'verbs',title:'Strong & Weak Verbs',level:'Intermediate',blurb:'singan, sang, sungon: vowel-changing verbs and the regular -ode verbs.'},
 {id:'adjectives',title:'Adjectives: Strong & Weak',level:'Intermediate',blurb:'Two sets of endings, and when to use each.'},
@@ -144,9 +144,10 @@ const GL=()=>`
 <li>Wikipedia, “<a href="https://en.wikipedia.org/wiki/Old_English_Latin_alphabet">Old English Latin alphabet</a>”. Wiktionary, “<a href="https://en.wiktionary.org/wiki/Appendix:Old_English_pronunciation">Appendix:Old English pronunciation</a>” (which points to the above).</li>
 <li>Word data and IPA in the linked entries: Wiktionary contributors (CC BY-SA 4.0), via Wiktextract/kaikki.org.</li></ul>
 <p class="note">Pronunciation guides like this describe a reconstructed standard (late West Saxon, c. 1000 AD). Real speech varied by region and century.</p>`;
-async function grammarLetters(anchor){await ready;M.innerHTML=`<div class="crumbs"><a href="#">Home</a> › <a href="#grammar">Grammar</a> › Letters &amp; Pronunciation</div><article class="card guide" style="cursor:default"><h2 class="pgtitle">Letters &amp; Pronunciation</h2>${fill(GL())}</article>`;
+async function renderGuide(title,html,anchor){await ready;M.innerHTML=`<div class="crumbs"><a href="#">Home</a> › <a href="#grammar">Grammar</a> › ${title}</div><article class="card guide" style="cursor:default"><h2 class="pgtitle">${title}</h2>${fill(html)}</article>`;
  const gfind=w=>{const k=norm(w);for(let j=0;j<NK.length;j++)if(NK[j]===k&&IDX[j][0]===w&&!/^the letter/.test(IDX[j][2])&&!isFormOf(j))return j;return find(w)};
  M.querySelectorAll('a.exw').forEach(a=>{const i=gfind(a.dataset.w);if(i>=0)a.href='#w/'+i;else{a.classList.add('missing');a.removeAttribute('href')}});
  M.querySelectorAll('button.cp').forEach(b=>b.onclick=()=>{navigator.clipboard?.writeText(b.textContent);const t=b.textContent;b.textContent='✓';setTimeout(()=>b.textContent=t,700)});
  if(anchor){const el=document.getElementById(anchor);el&&el.scrollIntoView()}else scrollTo(0,0)}
-function grammarRoute(h){const p=h.split('/');if(p[1]==='letters')grammarLetters(p[2]);else grammarHub()}
+const grammarLetters=a=>renderGuide('Letters &amp; Pronunciation',GL(),a);
+function grammarRoute(h){const p=h.split('/');if(p[1]==='letters')grammarLetters(p[2]);else if(p[1]==='nouns')renderGuide('Nouns, Cases &amp; Gender',GN(),p[2]);else grammarHub()}
