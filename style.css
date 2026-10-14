@@ -1,0 +1,18 @@
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:#f4f4f4;color:#222}
+header{position:sticky;top:0;background:#2f6c9e;color:#fff;display:flex;gap:12px;align-items:center;padding:10px 16px}
+.logo{color:#fff;font-weight:700;text-decoration:none;font-size:20px;white-space:nowrap}
+#q{flex:1;padding:9px 12px;border:0;border-radius:4px;font-size:16px}nav a{color:#fff;margin-left:10px;text-decoration:none}
+main{max-width:820px;margin:0 auto;padding:12px}
+.card{background:#fff;border-radius:4px;padding:12px 16px;margin:8px 0;box-shadow:0 1px 2px #0002;cursor:pointer}
+.hw{font-size:22px;color:#1b4f7a;font-weight:600}.rune{font-size:20px;color:#8a5a00;margin-left:8px}
+.pos{color:#2e8b57;font-size:13px;font-style:italic}.ex{color:#555;font-size:14px;margin:4px 0 4px 18px}.ex i{color:#888}
+.tag{display:inline-block;font-size:11px;padding:1px 6px;border-radius:3px;background:#e07b00;color:#fff;margin-right:4px}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid #ddd;padding:4px 8px;text-align:left}th{background:#eef3f8}
+.runes{display:flex;flex-wrap:wrap;gap:8px}.rb{border:1px solid #e3c98f;background:#fffaf0;border-radius:4px;padding:6px;text-align:center;min-width:64px}
+.rb b{font-size:28px;display:block;color:#8a5a00}.rb small{display:block;color:#666}
+button{background:#2f6c9e;color:#fff;border:0;border-radius:4px;padding:6px 12px;cursor:pointer;margin:2px}button.sec{background:#888}
+h3{color:#2f6c9e;border-bottom:1px solid #ddd;margin-top:18px}
+.fc{font-size:40px;text-align:center;padding:50px 10px;min-height:200px}footer{text-align:center;font-size:12px;color:#888;padding:20px}
+@font-face{font-family:"Noto Sans Runic";src:local("Noto Sans Runic"),url(fonts/NotoSansRunic-Regular.ttf) format("truetype");font-display:swap}
+.rune,.rb b,.logo .r,.fc .rune{font-family:"Noto Sans Runic",system-ui,sans-serif}
+.fc .back{font-size:26px;line-height:1.4}.fc .back .def{font-size:30px;font-weight:600;color:#1b4f7a}.fc .back .more{font-size:18px;color:#555;margin-top:10px}
