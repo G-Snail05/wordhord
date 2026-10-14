@@ -1,3 +1,4 @@
+:root{--nom:#2f6c9e;--acc:#b0302a;--gen:#8e44ad;--dat:#a84300;--ins:#5f6b6d;--nom-bg:#e3eef8;--acc-bg:#fbe4e1;--gen-bg:#f1e4f6;--dat-bg:#fcebdc;--ins-bg:#eceeee;--masc:#2f6c9e;--fem:#a8336f;--neut:#226b44}
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:#f4f4f4;color:#222}
 header{position:sticky;top:0;background:#2f6c9e;color:#fff;display:flex;gap:12px;align-items:center;padding:10px 16px}
 .logo{color:#fff;font-weight:700;text-decoration:none;font-size:20px;white-space:nowrap}
@@ -39,9 +40,23 @@ body[data-page=home] header #q{visibility:hidden}@media(max-width:700px){body[da
 @media(max-width:700px){.toc ol{columns:1}.gt{display:block;overflow-x:auto}.gt td,.gt th{padding:4px 5px;font-size:13px}.verse{font-size:19px}}
 .q .tag{align-self:flex-start;color:#fff;font-size:11px}
 .tw{overflow-x:auto}.par caption{caption-side:top;text-align:left;font-weight:600;color:#2f6c9e;padding:4px 0}.par td b,.art td b{color:#c0392b}.gd{font-size:11px;font-weight:400;color:#888}
-.g{font-size:12px;padding:1px 6px;border-radius:3px;color:#fff}.g.m{background:#2f6c9e}.g.f{background:#b03a78}.g.n{background:#2e8b57}
-.c-nom{color:#2f6c9e}.c-acc{color:#c0392b}.c-gen{color:#8e44ad}.c-dat{color:#d35400}.c-ins{color:#7f8c8d}
+
 .il{display:flex;flex-wrap:wrap;gap:6px 10px;margin:10px 0 2px;padding:8px;background:#f8fbff;border:1px solid #d6e4f0;border-radius:4px}
 .ilw{display:flex;flex-direction:column;align-items:flex-start;min-width:48px}.ilw .oe{font-weight:600;font-size:17px;color:#1b4f7a}.ilg{font-size:13px;color:#555}
-.ilt{font-size:10px;text-transform:uppercase;padding:0 4px;border-radius:2px;background:#eee;color:#555}.ilt.nom{background:#dce9f5;color:#2f6c9e}.ilt.acc{background:#f8dcd8;color:#c0392b}.ilt.gen{background:#ecdcf3;color:#8e44ad}.ilt.dat{background:#fbe5d2;color:#d35400}
+.ilt{font-size:10px;text-transform:uppercase;padding:0 4px;border-radius:2px;background:#eee;color:#555}
 .ilx{margin:2px 0 12px;font-style:italic;color:#444}.exw.mini{padding:0 4px;font-size:11px;margin:0}.passage{font-family:Georgia,serif;font-size:20px;line-height:1.7;background:#fffaf0;border:1px solid #e3c98f;border-radius:4px;padding:10px 14px}
+
+/* shared case & gender colours (guides + dictionary) */
+.c-nom{color:var(--nom)}.c-acc{color:var(--acc)}.c-gen{color:var(--gen)}.c-dat{color:var(--dat)}.c-ins{color:var(--ins)}
+.ilt.nom{background:var(--nom-bg);color:var(--nom)}.ilt.acc{background:var(--acc-bg);color:var(--acc)}.ilt.gen{background:var(--gen-bg);color:var(--gen)}.ilt.dat{background:var(--dat-bg);color:var(--dat)}
+.g{display:inline-block;font-size:12px;line-height:1.5;padding:0 6px;border-radius:3px;color:#fff;font-weight:600;font-style:normal;vertical-align:middle;margin-right:3px}
+.g.m{background:var(--masc)}.g.f{background:var(--fem)}.g.n{background:var(--neut)}
+.gb{margin-left:6px;white-space:nowrap}.gb .g{font-size:11px}.hw+.gb .g,.fcg .g{font-size:12px}
+tr.r-nom>td:first-child{color:var(--nom);background:var(--nom-bg);font-weight:600;border-left:4px solid var(--nom)}
+tr.r-acc>td:first-child{color:var(--acc);background:var(--acc-bg);font-weight:600;border-left:4px solid var(--acc)}
+tr.r-gen>td:first-child{color:var(--gen);background:var(--gen-bg);font-weight:600;border-left:4px solid var(--gen)}
+tr.r-dat>td:first-child{color:var(--dat);background:var(--dat-bg);font-weight:600;border-left:4px solid var(--dat)}
+tr.r-ins>td:first-child{color:var(--ins);background:var(--ins-bg);font-weight:600;border-left:4px solid var(--ins)}
+.par tr th.c-nom,.art th.c-nom{background:var(--nom-bg)}.art th.c-acc{background:var(--acc-bg)}.art th.c-gen{background:var(--gen-bg)}.art th.c-dat{background:var(--dat-bg)}.art th.c-ins{background:var(--ins-bg)}
+.caselegend{font-size:12px;margin:4px 0 6px;display:flex;flex-wrap:wrap;gap:4px 10px}.caselegend span{font-weight:600}
+.gt th.c-nom,.gt tr.r-nom>th{background:var(--nom-bg);color:var(--nom)}.gt th.c-acc,.gt tr.r-acc>th{background:var(--acc-bg);color:var(--acc)}.gt th.c-gen,.gt tr.r-gen>th{background:var(--gen-bg);color:var(--gen)}.gt th.c-dat,.gt tr.r-dat>th{background:var(--dat-bg);color:var(--dat)}.gt th.c-ins,.gt tr.r-ins>th{background:var(--ins-bg);color:var(--ins)}.gor{color:#999;margin-right:3px}

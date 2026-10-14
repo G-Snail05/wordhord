@@ -1,9 +1,9 @@
 // Guide 2: Nouns, Cases & Gender. Paradigms checked against Wiktionary data (kaikki) and Wikipedia "Old English grammar".
 // P(caption, [[lemma, gloss, gender, [Nsg,Asg,Gsg,Dsg], [Npl,Apl,Gpl,Dpl]], ...]); "stem|ending" bolds the ending.
 function P(cap,cols){const b=f=>f.split('/').map(x=>x.includes('|')?x.replace(/\|(.*)$/,'<b>$1</b>'):x).join(', ');
- const R=['Nominative','Accusative','Genitive','Dative'];
+ const R=['Nominative','Accusative','Genitive','Dative'],RC=['nom','acc','gen','dat'];
  return `<div class="tw"><table class="gt par"><caption>${cap}</caption><tr><th></th>${cols.map(c=>`<th colspan="2">{{${c[0]}|${c[1]}}}<div class="gd">${c[2]}</div></th>`).join('')}</tr>
- <tr><th></th>${cols.map(()=>'<th>Singular</th><th>Plural</th>').join('')}</tr>${R.map((r,i)=>`<tr><th>${r}</th>${cols.map(c=>`<td>${b(c[3][i])}</td><td>${b(c[4][i])}</td>`).join('')}</tr>`).join('')}</table></div>`}
+ <tr><th></th>${cols.map(()=>'<th>Singular</th><th>Plural</th>').join('')}</tr>${R.map((r,i)=>`<tr class="r-${RC[i]}"><th class="c-${RC[i]}">${r}</th>${cols.map(c=>`<td>${b(c[3][i])}</td><td>${b(c[4][i])}</td>`).join('')}</tr>`).join('')}</table></div>`}
 // interlinear gloss: [[oe, lemma or '', gloss, case-tag], ...]
 function IL(words,tr){return `<div class="il">${words.map(([oe,lem,gl,tag])=>`<div class="ilw"><span class="oe">${oe}</span>${lem?`<a class="exw mini" data-w="${lem}" href="#dict"><span class="rune">${rs(lem)}</span></a>`:''}<span class="ilg">${gl}</span>${tag?`<span class="ilt ${tag.split(' ')[0]}">${tag}</span>`:''}</div>`).join('')}</div><p class="ilx">“${tr}”</p>`}
 const GN=()=>`
