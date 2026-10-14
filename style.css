@@ -27,3 +27,14 @@ h3{color:#2f6c9e;border-bottom:1px solid #ddd;margin-top:18px}
 nav{display:flex;flex-wrap:wrap}nav a{white-space:nowrap}
 @media(max-width:700px){header{flex-wrap:wrap;gap:8px}#q{order:3;flex-basis:100%}nav{margin-left:auto}nav a{margin-left:8px;font-size:14px}.grid2{grid-template-columns:1fr}.hero h1{font-size:32px}.bigq{font-size:16px}body[data-page=home] #q{display:none}}
 body[data-page=home] header #q{visibility:hidden}@media(max-width:700px){body[data-page=home] header #q{display:none}}
+.crumbs{font-size:13px;color:#777;margin:8px 0}.pgtitle{color:#1b4f7a;margin:4px 0 10px}.guide{line-height:1.6}.guide .lead{font-size:17px;color:#444}
+.toc ol{columns:2;margin:6px 0 0;padding-left:22px}.toc{background:#f8fbff;box-shadow:none;border:1px solid #d6e4f0}
+.gt{margin:8px 0 14px}.gt td{vertical-align:top}.gt .big{font-size:22px;font-weight:600;color:#1b4f7a;white-space:nowrap}.table-wrap{overflow-x:auto}
+.exw{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:4px;padding:2px 7px;margin:2px;border:1px solid #d6e4f0;border-radius:4px;background:#f8fbff;text-decoration:none;color:#222;font-size:14px}
+.exw b{color:#1b4f7a}.exw .rune{font-size:14px;margin:0}.exw .ipa{color:#2e8b57;font-size:12px}.exw .gl{color:#666;font-size:12px}.exw:hover{border-color:#2f6c9e}.exw.missing{opacity:.6}
+.note{background:#fff8e6;border-left:4px solid #e07b00;padding:8px 12px;margin:10px 0;border-radius:3px}.alpha{font-size:24px;letter-spacing:.12em;text-align:center;color:#1b4f7a}
+.verse{font-size:24px;text-align:center;margin:6px 0;font-family:Georgia,serif}.verse.rune{font-size:22px}
+.quiz details{background:#f8fbff;border:1px solid #d6e4f0;border-radius:4px;padding:8px 12px;margin:6px 0}.quiz summary{cursor:pointer;font-weight:500}.quiz details[open] summary{margin-bottom:6px;color:#2f6c9e}
+.cp{font-size:18px;padding:2px 10px}.src{font-size:14px}.guide h3{scroll-margin-top:70px}.ws{margin:6px 0}
+@media(max-width:700px){.toc ol{columns:1}.gt{display:block;overflow-x:auto}.gt td,.gt th{padding:4px 5px;font-size:13px}.verse{font-size:19px}}
+.q .tag{align-self:flex-start;color:#fff;font-size:11px}
