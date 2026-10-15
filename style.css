@@ -129,3 +129,5 @@ a.rb{text-decoration:none;color:inherit}a.rb:hover{box-shadow:0 1px 5px 0003}
 .rmw{position:absolute;top:2px;right:2px;padding:0 7px;line-height:20px}
 @media(max-width:600px){.wgrid{grid-template-columns:1fr 1fr;max-height:none}.myl .acts{margin-left:0}}
 .cols{columns:2 240px;font-size:14px}
+
+.hform{display:flex;gap:8px;max-width:640px;margin:0 auto}.hform .bigq{flex:1;min-width:0}.hbtn{padding:0 18px;font-size:17px;border-radius:6px;flex:none}
