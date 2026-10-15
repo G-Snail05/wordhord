@@ -67,9 +67,13 @@ const RP={
 'ᚣ':['Yr byþ æþelinga and eorla gehwæs<br>wyn and wyrþmynd, byþ on wicge fæger,<br>fæstlic on færelde, fyrdgeatewa sum.','Ȳr is a joy and an honour to every prince and nobleman; it looks fine on horseback and is reliable on a journey, a piece of war-gear.'],
 'ᛡ':['Iar byþ eafix and ðeah a bruceþ<br>fodres on foldan, hafaþ fægerne eard<br>wætre beworpen, ðær he wynnum leofaþ.','Īor is a river-fish, yet always takes its food on land; it has a fair home ringed with water, where it lives in delight.'],
 'ᛠ':['Ear byþ egle eorla gehwylcun,<br>ðonn[e] fæstlice flæsc onginneþ,<br>hraw colian, hrusan ceosan<br>blac to gebeddan; bleda gedreosaþ,<br>wynna gewitaþ, wera geswicaþ.','Ēar is hateful to every nobleman, when the flesh, the corpse, steadily begins to grow cold and, pale, to choose the earth as its bedfellow; fruits fall, joys pass away, promises fail.']};
+const RNAME=Object.fromEntries([...RUNES,...XRUNES].map(r=>[r[0],r[1]]));
+const RC=g=>`<a class="exw exr" data-rg="${g}"><b>${RNAME[g]}</b><span class="rune">${g}</span><span class="gl">rune entry</span></a>`;
 const cp=g=>'U+'+g.codePointAt(0).toString(16).toUpperCase();
+const rcid=g=>'r-'+g.codePointAt(0).toString(16).toUpperCase();
 function runeCard(r,n){const [g,nm,lk,mean,snd,tr,eld,note]=r,st=RP[g];
- return `<div class="rcard" id="r-${n}"><div class="rglyph" aria-hidden="true">${g}</div><div class="rbody"><div class="rname">${n?`<span class="rnum">${n}</span> `:''}${lk?exw(lk,'',''):`<b class="rnl">${nm}</b> <small class="nodict">(not in the dictionary)</small>`}</div>
+ return `<div class="rcard" id="${rcid(g)}"><a class="rglyph" data-rg="${g}" title="Open the rune entry">${g}</a><div class="rbody"><div class="rname">${n?`<span class="rnum">${n}</span> `:''}<a class="rnl" data-rg="${g}">${nm}</a> <small class="rent">rune entry →</small></div>
+<div class="rword">Word: ${lk?exw(lk,'',''):`<small class="nodict">${nm[0]==='('?'none':'not in the dictionary'}</small>`}</div>
 <dl><dt>Meaning</dt><dd>${mean}</dd><dt>Sound</dt><dd>${snd}</dd><dt>Transliteration</dt><dd><b>${tr}</b></dd><dt>Unicode</dt><dd><code>${cp(g)}</code> <button class="cp" title="Copy rune">${g}</button></dd><dt>Elder Futhark</dt><dd>${eld?`<span class="rune">${eld[0]}</span> ${eld[1]}`:'none (English innovation)'}</dd></dl>
 ${note?`<p class="rnote">${note}</p>`:''}${st?`<details class="rpo"><summary>Rune Poem stanza</summary><p class="oe">${st[0]}</p><p class="tr">${st[1]} <small>(our translation)</small></p></details>`:''}</div></div>`}
 const RT=(t,tr)=>`<span class="rune rl">${t}</span>${tr?` <i>${tr}</i>`:''}`;
@@ -92,17 +96,17 @@ const GH=()=>`<p class="lead">Before the Latin alphabet arrived with Christian m
 <p>From the 5th century, people in Britain and Frisia adapted the Elder Futhark to their own languages. Nobody knows where this happened. One theory puts it in Frisia, with the runes spreading to Britain later. Another has the runes reaching Britain from the continent first and being changed there before going on to Frisia. Both theories have weaknesses.</p>
 <p>The main early change came from a sound change. In these dialects, Germanic <i>a</i> split into several vowels. So the single Elder rune ${RT('ᚨ')} <i>a</i> became three runes:</p>
 <table class="rtab"><tr><th>Elder</th><th>Futhorc</th><th>Name</th><th>Sound</th></tr>
-<tr><td rowspan="3"><span class="rune rl">ᚨ</span> *ansuz</td><td><span class="rune rl">ᚩ</span></td><td>{{ōs@noun~god|a god}}</td><td>o</td></tr>
-<tr><td><span class="rune rl">ᚪ</span></td><td>{{āc@noun|oak}}</td><td>a</td></tr>
-<tr><td><span class="rune rl">ᚫ</span></td><td>{{æsċ@noun|ash tree}}</td><td>æ</td></tr></table>
+<tr><td rowspan="3"><span class="rune rl">ᚨ</span> *ansuz</td><td><span class="rune rl">ᚩ</span></td><td>${RC("ᚩ")}</td><td>o</td></tr>
+<tr><td><span class="rune rl">ᚪ</span></td><td>${RC("ᚪ")}</td><td>a</td></tr>
+<tr><td><span class="rune rl">ᚫ</span></td><td>${RC("ᚫ")}</td><td>æ</td></tr></table>
 <p>That gave 26 runes. The earliest ōs ${RT('ᚩ')} may be on the 5th-century <b>Undley bracteate</b>. Āc ${RT('ᚪ')} appears by the 6th century, for example on the Schweindorf solidus. The double-barred ${RT('ᚻ')} hæġl, which became standard, is first found in England as late as 698, on St Cuthbert’s coffin; earlier English inscriptions use the single-barred ${RT('ᚺ')}.</p>
-<p>Two more English additions, ${RT('ᚣ')} {{ȳr@noun|the rune ᚣ}} for <i>y</i> and ${RT('ᛠ')} <b>ēar</b> for <i>ea</i>, brought the row to its standard <b>28 runes</b>. Most of the old runes kept their place in the row, and most had a direct English counterpart to an Elder name: ${RT('ᚠ')} {{feoh@noun|wealth}}, ${RT('ᚱ')} {{rād@noun|riding}}, ${RT('ᛁ')} {{īs@noun|ice}}, ${RT('ᛞ')} {{dæġ@noun|day}}.</p>
+<p>Two more English additions, ${RT('ᚣ')} ${RC("ᚣ")} for <i>y</i> and ${RT('ᛠ')} <b>ēar</b> for <i>ea</i>, brought the row to its standard <b>28 runes</b>. Most of the old runes kept their place in the row, and most had a direct English counterpart to an Elder name: ${RT('ᚠ')} ${RC("ᚠ")}, ${RT('ᚱ')} ${RC("ᚱ")}, ${RT('ᛁ')} ${RC("ᛁ")}, ${RT('ᛞ')} ${RC("ᛞ")}.</p>
 
 <h3 id="growth">3. From 28 to 33 runes: the Northumbrian additions</h3>
 <p>In the 9th century the English row grew to about 33 runes, and some writers used even more. The additions are attested mainly in the north, in Northumbria, and in manuscripts:</p>
-<ul><li>${RT('ᛣ')} <b>calc</b> (k) and ${RT('ᚸ')} {{gār@noun|spear}} (hard g) are modified forms of ċēn and ġyfu. By then, c and g each stood for two sounds: hard /k/ and /g/, and their “soft” palatal variants (compare <i>ċ</i>, <i>ġ</i> in our spellings). The new runes kept the hard sounds apart. Calc is found on the Ruthwell Cross, the Bramham Moor and Kingmoor rings and elsewhere. Gār is on the Ruthwell Cross and probably the Bewcastle Cross.</li>
+<ul><li>${RT('ᛣ')} <b>calc</b> (k) and ${RT('ᚸ')} ${RC("ᚸ")} (hard g) are modified forms of ċēn and ġyfu. By then, c and g each stood for two sounds: hard /k/ and /g/, and their “soft” palatal variants (compare <i>ċ</i>, <i>ġ</i> in our spellings). The new runes kept the hard sounds apart. Calc is found on the Ruthwell Cross, the Bramham Moor and Kingmoor rings and elsewhere. Gār is on the Ruthwell Cross and probably the Bewcastle Cross.</li>
 <li>${RT('ᛤ')} is an unnamed rune found only on the Ruthwell Cross.</li>
-<li>${RT('ᛢ')} <b>cweorð</b> and ${RT('ᛥ')} {{stān@noun|stone}} occur only in manuscripts. R. I. Page called them pseudo-runes, and suggested cweorð was invented just to match Latin Q.</li>
+<li>${RT('ᛢ')} <b>cweorð</b> and ${RT('ᛥ')} ${RC("ᛥ")} occur only in manuscripts. R. I. Page called them pseudo-runes, and suggested cweorð was invented just to match Latin Q.</li>
 <li>${RT('ᛡ')} <b>īor</b> appears in the Rune Poem and in manuscripts. In inscriptions it is only a variant of ġēr, and Page called it a pseudo-rune as well.</li></ul>
 <p>Fewer than 200 objects with futhorc inscriptions survive from five or more centuries of use. That is too few to say how common runic writing was.</p>
 
@@ -147,8 +151,8 @@ ${IMG('img/seax-beagnoth-futhorc.jpg','Detail of the inlaid futhorc on the Seax 
 <h3 id="decline">7. Decline, and the runes that survived as letters</h3>
 <p>Missionaries brought the Latin alphabet at the end of the 6th century, and by the 8th it had overtaken runes for most purposes. Runes were rare by the Norman Conquest of 1066, and they later fell out of use, though some knowledge of them lasted into the 12th century.</p>
 <p>The rune-row did leave something behind. Two runes were taken into the Latin alphabet to write English sounds that Latin lacked:</p>
-<ul><li>${RT('ᚦ')} {{þorn@noun|thorn}} became the letter <b>þ</b>. It stayed in common use through most of the Middle English period, until the spelling <i>th</i> spread from the 14th century.</li>
-<li>${RT('ᚹ')} {{wynn@noun|joy}} became the letter <b>ƿ</b>, replacing the earlier spelling <i>uu</i> for /w/. It was used until about 1300.</li></ul>
+<ul><li>${RT('ᚦ')} ${RC("ᚦ")} became the letter <b>þ</b>. It stayed in common use through most of the Middle English period, until the spelling <i>th</i> spread from the 14th century.</li>
+<li>${RT('ᚹ')} ${RC("ᚹ")} became the letter <b>ƿ</b>, replacing the earlier spelling <i>uu</i> for /w/. It was used until about 1300.</li></ul>
 <p>Modern editions, including this dictionary, print ƿ as <i>w</i>. The Rune Poem’s stanza for wynn, though, begins <i>Wenne</i> in the text we use.</p>
 <div class="note">Runes and magic: R. I. Page rejected the popular idea that, after the conversion, runes were especially pagan or magical in England. St Cuthbert’s coffin, made at the heart of the Church, has runic inscriptions. There is some evidence of magical use, though, such as the possible <i>alu</i> formula in mirrored runes on cremation urns from Spong Hill.</div>
 
@@ -179,7 +183,7 @@ ${IMG('img/seax-beagnoth-futhorc.jpg','Detail of the inlaid futhorc on the Seax 
 <li>Images: Wikimedia Commons, with the licences given in each caption.</li>
 <li>Linked words: Wiktionary via Wiktextract/kaikki.org (CC BY-SA 4.0).</li></ul>`;
 const PR=(r,lat,tr,where)=>`<div class="prx"><p class="verse rune">${r}</p><p class="where">${where}</p><details><summary>Show reading</summary><p><i>${lat}</i>: ${tr}</p></details></div>`;
-const GR=()=>`<p class="lead">Every rune of the Anglo-Saxon futhorc, in its traditional order. Each card shows the rune, its Old English name (linked to the dictionary where we have it), the name’s meaning, its sound, the usual transliteration, its Unicode code point, the Elder Futhark rune it comes from, and its stanza from the Old English Rune Poem. For the story behind them, see <a href="#runes/history">History of the Futhorc</a>.</p>
+const GR=()=>`<p class="lead">Every rune of the Anglo-Saxon futhorc, in its traditional order. Each card shows the rune and its Old English name (both open the rune’s own dictionary entry), the ordinary word the name comes from where we have it, the name’s meaning, its sound, the usual transliteration, its Unicode code point, the Elder Futhark rune it comes from, and its stanza from the Old English Rune Poem. For the story behind them, see <a href="#runes/history">History of the Futhorc</a>.</p>
 <div class="toc card"><b>Contents</b><ol>
 <li><a href="#runes/alphabet/row1">Runes 1–8</a></li><li><a href="#runes/alphabet/row2">Runes 9–16</a></li><li><a href="#runes/alphabet/row3">Runes 17–24</a></li><li><a href="#runes/alphabet/row4">Runes 25–29: English additions</a></li><li><a href="#runes/alphabet/extra">Northumbrian and manuscript runes</a></li><li><a href="#runes/alphabet/uncertain">Notes on the uncertain runes</a></li><li><a href="#runes/alphabet/converter">How our converter spells</a></li><li><a href="#runes/alphabet/writing">Direction, dividers and bind-runes</a></li><li><a href="#runes/alphabet/practice">Practice: real inscriptions</a></li><li><a href="#runes/alphabet/quiz">Quick self-check</a></li><li><a href="#runes/alphabet/sources">Sources</a></li></ol></div>
 <p class="alpha rune">${RUNES.map(r=>r[0]).join('')}</p>
@@ -247,11 +251,11 @@ const RHUB=[['converter','ᚱᚢᚾ','Rune converter','Type Old English and see 
 ['alphabet','ᚪᚫᚩ','The Runes','Every rune: name, meaning, sound, Unicode, ancestor and Rune Poem stanza, plus practice inscriptions.','Guide']];
 function runeHub(){M.innerHTML=`<div class="crumbs"><a href="#">Home</a> › Runes</div><h2 class="pgtitle">Runes <span class="rune">ᚱᚢᚾᚪ</span></h2><p>The Anglo-Saxons’ own alphabet, the futhorc. Convert text, learn its history, or meet each rune.</p>
 <div class="quick">${RHUB.map(h=>`<a class="card q" href="#runes/${h[0]}"><span class="tag">${h[4]}</span><span class="rune hubr">${h[1]}</span><b>${h[2]}</b><span>${h[3]}</span></a>`).join('')}</div>`;scrollTo(0,0)}
-function runeConverter(txt){M.innerHTML=`<div class="crumbs"><a href="#">Home</a> › <a href="#runes">Runes</a> › Rune converter</div><div class="card" style="cursor:default"><h2>Rune converter</h2><p>Type Old English (or modern) text to see it in the Anglo-Saxon futhorc.</p>
+async function runeConverter(txt){await ready;M.innerHTML=`<div class="crumbs"><a href="#">Home</a> › <a href="#runes">Runes</a> › Rune converter</div><div class="card" style="cursor:default"><h2>Rune converter</h2><p>Type Old English (or modern) text to see it in the Anglo-Saxon futhorc.</p>
 <textarea id="rt" rows="3" aria-label="Text to convert" placeholder="Hwæt! Wē Gār-Dena in ġēardagum"></textarea><div id="ro" class="rune runeout"></div><h3>Rune by rune</h3><div id="rbk" class="runes"></div>
 <p><small>The rune spellings come from a simplified letter-to-rune mapping, and are not historical inscriptions. See <a href="#runes/alphabet/converter">how our converter spells</a> for what it simplifies, and <a href="#runes/alphabet">The Runes</a> for every rune.</small></p></div>`;
  $('#rt').value=txt||'Hwæt wē Gārdena in ġēardagum';
- const up=()=>{const v=$('#rt').value,r=runes(v);$('#ro').textContent=r.map(x=>x[1]).join('');$('#rbk').innerHTML=r.map(x=>`<div class="rb"><b>${x[1]}</b>${esc(x[2])}<small>${esc(x[3]||'·')}</small></div>`).join('')};$('#rt').oninput=up;up();scrollTo(0,0)}
+ const up=()=>{const v=$('#rt').value,r=runes(v);$('#ro').textContent=r.map(x=>x[1]).join('');$('#rbk').innerHTML=r.map(rtile).join('')};$('#rt').oninput=up;up();scrollTo(0,0)}
 function runesRoute(h){const p=h.split('/');
  if(h==='runes')return runeHub();
  if(p[1]==='converter')return runeConverter(p.slice(2).join('/'));
@@ -260,3 +264,21 @@ function runesRoute(h){const p=h.split('/');
  // legacy/unknown links (#rune, #converter, #runes/convert, #runes/<text>) go to the converter
  const rest=p[0]==='runes'&&p[1]&&!/^(convert|conv)$/.test(p[1])?'/'+p.slice(1).join('/'):'';
  location.replace('#runes/converter'+rest)}
+
+// Rune dictionary entries (pos 'rune', built by build.py from runes_src.json)
+function runeEntry(i,e){const r=e.r,st=r.poem,tot=29,num=r.n?`Rune ${r.n} of ${tot}`:'Later / manuscript rune';
+ const nav=(d)=>{const j=i+d;return IDX[j]&&IDX[j][1]==='rune'?`<a href="#w/${j}">${d<0?'← ':''}<span class="rune">${IDX[j][0]}</span>${d>0?' →':''}</a>`:'<span></span>'};
+ const others=e.f.filter(f=>f[1]==='other name').map(f=>f[0]);
+ M.innerHTML=`<div class="crumbs"><a href="#">Home</a> › <a href="#runes">Runes</a> › <a href="#runes/alphabet/${rcid(e.w)}">The Runes</a> › ${esc(r.name)}</div>
+<div class="card rentry" style="cursor:default"><div class="rehead"><div class="rebig">${e.w}</div><div><span class="hw" style="font-size:30px">${esc(r.name)}</span> <span class="posrune">rune</span><div class="pos">${num}</div><p class="def">${r.mean}</p>
+<button class="cp recp" title="Copy rune">${e.w}</button></div></div>
+<dl class="redl"><dt>Name</dt><dd><b>${esc(r.name)}</b>${r.ms?` · in Codex Vindobonensis 795: <i>${esc(r.ms)}</i>`:''}</dd>
+<dt>Word</dt><dd>${r.wid>=0?`<a class="exw" href="#w/${r.wid}"><b>${esc(IDX[r.wid][0])}</b><span class="rune">${rs(IDX[r.wid][0])}</span><span class="gl">${esc(IDX[r.wid][2])}</span></a>`:'<small class="nodict">no matching word entry in the dictionary</small>'}</dd>
+<dt>Meaning</dt><dd>${r.mean}</dd><dt>Sound</dt><dd>${r.sound}</dd><dt>Transliteration</dt><dd><b>${esc(r.tr)}</b></dd><dt>Unicode</dt><dd><code>${r.cp}</code></dd>
+<dt>Elder Futhark</dt><dd>${r.elder?`<span class="rune">${r.elder[0]}</span> ${esc(r.elder[1])}`:'none (English innovation)'}</dd>
+${others.length?`<dt>Also found as</dt><dd>${others.map(esc).join(', ')} <small>(spellings from the manuscript name list and the Rune Poem, plus search helpers)</small></dd>`:''}</dl>
+${r.note?`<p class="rnote">${r.note}</p>`:''}
+<h3>Rune Poem</h3>${st?`<p class="oe">${st[0]}</p><p class="tr">${st[1]} <small>(our translation)</small></p><p><small>Old English text: Dickins (1915), via <a href="https://en.wikisource.org/wiki/Rune_poems">Wikisource</a>.</small></p>`:'<p>The Old English Rune Poem has no stanza for this rune.</p>'}
+<h3>Use as a logogram</h3>${r.logo?`<ul>${r.logo.map(x=>`<li>${x.t} <small>(${x.src.map(s=>`<a href="${s[1]}">${s[0]}</a>`).join('; ')})</small></li>`).join('')}</ul>`:'<p>None recorded in the sources we have read.</p>'}
+<p class="renav">${nav(-1)} <a href="#runes/alphabet/${rcid(e.w)}">See it in The Runes guide</a> · <a href="#runes/converter">Converter</a>${r.cid>=0?` · <a href="#w/${r.cid}">Wiktionary letter entry</a>`:''} ${nav(1)}</p></div>`;
+ M.querySelector('.recp').onclick=function(){navigator.clipboard?.writeText(e.w);this.textContent='✓';setTimeout(()=>this.textContent=e.w,700)};scrollTo(0,0)}

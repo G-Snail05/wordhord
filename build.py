@@ -1,4 +1,5 @@
 # Builds static index + shards from kaikki.org Old English JSONL. Usage: python3 build.py oe.jsonl
+#   or: python3 build.py --runes   (re-add the rune entries from runes_src.json to the existing data/, no download needed)
 import json,sys,unicodedata,os,shutil,re
 def n(s): return ''.join(c for c in unicodedata.normalize('NFD',s) if not unicodedata.combining(c)).lower().replace('ƿ','w')
 SKIP={'table-tags','inflection-template','class','canonical'}
@@ -17,7 +18,12 @@ def gender(d):
         if p in ('m','f','n'): g.add({'m':'masculine','f':'feminine','n':'neuter'}[p])
   return ''.join(c for c in 'mfn' if any(x[0]==c for x in g))
 ents=[]
-for l in open(sys.argv[1]):
+FROM_DATA=sys.argv[1]=='--runes'
+if FROM_DATA:
+  for k in sorted(os.listdir('data/e')): ents+=json.load(open('data/e/'+k))
+  ents=[e for e in ents if e['p']!='rune']
+  for e in ents: e.pop('rn',None)
+for l in ([] if FROM_DATA else open(sys.argv[1])):
   d=json.loads(l);w=d.get('word','')
   if not w: continue
   head=next((f['form'] for f in d.get('forms',[]) if 'canonical' in f.get('tags',[])),w)
@@ -35,6 +41,38 @@ for l in open(sys.argv[1]):
     if gg: e['g']=gg
   ents.append(e)
 ents.sort(key=lambda e:(n(e['w']),e['w']))
+
+# --- Rune entries (kanji-style): appended after the sorted dictionary so word ids stay stable ---
+def plain(h): return re.sub(r'<[^>]+>','',h)
+def add_runes(ents):
+  R=json.load(open('runes_src.json'));base=len(ents)
+  def lookup(spec):
+    if not spec: return -1
+    w,_,k=spec.partition('~');w,_,p=w.partition('@')
+    for i,e in enumerate(ents):
+      if e['w']==w and (not p or e['p'][:4]==p[:4]) and (not k or (e['s'] and k in e['s'][0][0])): return i
+    return -1
+  def chip(i,rid,g):
+    if i>=0:
+      l=ents[i].setdefault('rn',[])
+      if [rid,g] not in l: l.append([rid,g])
+  for k,r in enumerate(R):
+    rid=base+k;g=r['g'];wid=lookup(r.get('link'))
+    cid=next((i for i,e in enumerate(ents) if e['p']=='character' and e['w'].split(' ')[0]==g),-1)
+    f=[[r['name'],'rune name']]+[[a,'other name'] for a in r.get('alt',[]) if n(a)!=n(r['name'])]+[[r['tr'],'transliteration']]
+    seen={n(x[0]) for x in f}
+    for x in [r['name']]+r.get('alt',[]):
+      h=n(x).replace('þ','th').replace('ð','th').replace('æ','ae').replace('œ','oe')
+      if h not in seen: seen.add(h);f.append([h,'search spelling'])
+    ents.append({'w':g,'p':'rune','i':'','s':[[(f"the rune {r['name']}" if r['name'][0]!='(' else 'an unnamed rune')+f": {plain(r['mean'])}",[]]],'y':'','f':f,'d':[],
+      'r':{**{x:r[x] for x in r if x not in ('link','alt')},'cp':'U+%04X'%ord(g),'wid':wid,'cid':cid}})
+    chip(wid,rid,g);chip(cid,rid,g)
+    if wid>=0 and ents[wid]['s'] and ents[wid]['s'][0][0].startswith('alternative form of '):
+      t=ents[wid]['s'][0][0][20:].strip()
+      chip(next((i for i,e in enumerate(ents[:base]) if e['w']==t and e['p']==ents[wid]['p']),-1),rid,g)
+    for i,e in enumerate(ents[:base]):
+      if e['s'] and e['s'][0][0].startswith('the runic character '+g): chip(i,rid,g)
+add_runes(ents)
 CH=250;shards={};idx=[];forms={}
 for i,e in enumerate(ents):
   k=f'{i//CH:03d}';shards.setdefault(k,[]).append(e)
@@ -43,7 +81,7 @@ for i,e in enumerate(ents):
   for f,_ in e['f']:
     nf=n(f)
     if nf!=n(e['w']): forms.setdefault(nf,set()).add(i)
-shutil.rmtree('data',ignore_errors=True);os.makedirs('data/e')
+shutil.rmtree('data/e',ignore_errors=True);os.makedirs('data/e')
 for k,v in shards.items(): json.dump(v,open(f'data/e/{k}.json','w'),ensure_ascii=False,separators=(',',':'))
 json.dump(idx,open('data/index.json','w'),ensure_ascii=False,separators=(',',':'))
 json.dump({k:sorted(v) for k,v in forms.items()},open('data/forms.json','w'),ensure_ascii=False,separators=(',',':'))

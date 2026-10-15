@@ -1,0 +1,860 @@
+[
+{
+"n": 1,
+"g": "ᚠ",
+"name": "feoh",
+"link": "feoh@noun",
+"mean": "wealth, cattle",
+"sound": "/f/, [v] between voiced sounds",
+"tr": "f",
+"elder": [
+"ᚠ",
+"*fehu"
+],
+"poem": [
+"Feoh byþ frofur fira gehwylcum;<br>sceal ðeah manna gehwylc miclun hyt dælan<br>gif he wile for drihtne domes hleotan.",
+"Wealth is a comfort to every man; yet each must share it out freely if he wants to win glory before the Lord."
+],
+"alt": [
+"feh"
+],
+"ms": "feh",
+"logo": [
+{
+"t": "One of the runes in Cynewulf’s runic signature. In <i>The Fates of the Apostles</i>, <i>Juliana</i>, <i>Elene</i> and <i>Christ II</i> the letters of his name (C-Y-N-(E)-W-U-L-F) are woven into the verse as runes that also stand for words fitting the passage.",
+"src": [
+[
+"Wikipedia, “Cynewulf” (Runic signature)",
+"https://en.wikipedia.org/wiki/Cynewulf"
+]
+]
+}
+]
+},
+{
+"n": 2,
+"g": "ᚢ",
+"name": "ūr",
+"link": "ūr@noun",
+"mean": "aurochs",
+"sound": "/u(ː)/",
+"tr": "u",
+"elder": [
+"ᚢ",
+"*ūruz"
+],
+"poem": [
+"Ur byþ anmod ond oferhyrned,<br>felafrecne deor, feohteþ mid hornum<br>mære morstapa; þæt is modig wuht.",
+"The aurochs is fierce and high-horned, a very dangerous beast; it fights with its horns, a famous moor-stalker: that is a bold creature."
+],
+"alt": [
+"ur"
+],
+"ms": "ur",
+"logo": [
+{
+"t": "One of the runes in Cynewulf’s runic signature. In <i>The Fates of the Apostles</i>, <i>Juliana</i>, <i>Elene</i> and <i>Christ II</i> the letters of his name (C-Y-N-(E)-W-U-L-F) are woven into the verse as runes that also stand for words fitting the passage.",
+"src": [
+[
+"Wikipedia, “Cynewulf” (Runic signature)",
+"https://en.wikipedia.org/wiki/Cynewulf"
+]
+]
+}
+]
+},
+{
+"n": 3,
+"g": "ᚦ",
+"name": "þorn",
+"link": "þorn@noun",
+"mean": "thorn",
+"sound": "/θ/, [ð] between voiced sounds",
+"tr": "þ",
+"elder": [
+"ᚦ",
+"*þurisaz"
+],
+"poem": [
+"Ðorn byþ ðearle scearp; ðegna gehwylcum<br>anfeng ys yfyl, ungemetum reþe<br>manna gehwelcum, ðe him mid resteð.",
+"Thorn is very sharp; grasping it is bad for any thane, and cruel beyond measure to anyone who lies among them."
+],
+"alt": [
+"thorn",
+"ðorn"
+],
+"ms": "ðorn"
+},
+{
+"n": 4,
+"g": "ᚩ",
+"name": "ōs",
+"link": "ōs@noun~god",
+"mean": "a god (the poem plays on Latin <i>os</i> “mouth”)",
+"sound": "/o(ː)/",
+"tr": "o",
+"elder": [
+"ᚨ",
+"*ansuz"
+],
+"note": "One of three runes split from Elder ᚨ (see āc and æsc).",
+"poem": [
+"Os byþ ordfruma ælere spræce,<br>wisdomes wraþu ond witena frofur<br>and eorla gehwam eadnys ond tohiht.",
+"The mouth (or god) is the source of all speech, the prop of wisdom and comfort of the wise, and to every nobleman a blessing and a hope."
+],
+"alt": [
+"os"
+],
+"ms": "os"
+},
+{
+"n": 5,
+"g": "ᚱ",
+"name": "rād",
+"link": "rād@noun",
+"mean": "riding, journey",
+"sound": "/r/",
+"tr": "r",
+"elder": [
+"ᚱ",
+"*raidō"
+],
+"poem": [
+"Rad byþ on recyde rinca gehwylcum<br>sefte ond swiþhwæt, ðamðe sitteþ on ufan<br>meare mægenheardum ofer milpaþas.",
+"Riding is easy for every warrior in the hall, and very strenuous for the one who sits on a powerful horse over the long roads."
+],
+"alt": [
+"rada"
+],
+"ms": "rada"
+},
+{
+"n": 6,
+"g": "ᚳ",
+"name": "ċēn",
+"link": "ċēn@noun",
+"mean": "torch",
+"sound": "/k/, /kʲ/, /tʃ/",
+"tr": "c",
+"elder": [
+"ᚲ",
+"*kauną"
+],
+"poem": [
+"Cen byþ cwicera gehwam, cuþ on fyre<br>blac ond beorhtlic, byrneþ oftust<br>ðær hi æþelingas inne restaþ.",
+"The torch is known to every living person by its fire, pale and bright; it burns most often where nobles rest indoors."
+],
+"alt": [
+"cen"
+],
+"ms": "cen",
+"logo": [
+{
+"t": "One of the runes in Cynewulf’s runic signature. In <i>The Fates of the Apostles</i>, <i>Juliana</i>, <i>Elene</i> and <i>Christ II</i> the letters of his name (C-Y-N-(E)-W-U-L-F) are woven into the verse as runes that also stand for words fitting the passage.",
+"src": [
+[
+"Wikipedia, “Cynewulf” (Runic signature)",
+"https://en.wikipedia.org/wiki/Cynewulf"
+]
+]
+}
+]
+},
+{
+"n": 7,
+"g": "ᚷ",
+"name": "ġyfu",
+"link": "ġyfu@noun",
+"mean": "gift",
+"sound": "/ɡ/, [ɣ], /j/",
+"tr": "g",
+"elder": [
+"ᚷ",
+"*gebō"
+],
+"poem": [
+"Gyfu gumena byþ gleng and herenys,<br>wraþu and wyrþscype and wræcna gehwam<br>ar and ætwist, ðe byþ oþra leas.",
+"Giving is an honour and a praise among men, a support and a dignity; and for every outcast with nothing else, help and a living."
+],
+"alt": [
+"geofu",
+"giefu",
+"gifu"
+],
+"ms": "geofu"
+},
+{
+"n": 8,
+"g": "ᚹ",
+"name": "wynn",
+"link": "wynn@noun",
+"mean": "joy",
+"sound": "/w/",
+"tr": "w",
+"elder": [
+"ᚹ",
+"*wunjō"
+],
+"note": "Borrowed into the Latin alphabet as the letter ƿ.",
+"poem": [
+"Wenne bruceþ, ðe can weana lyt<br>sares and sorge and him sylfa hæfþ<br>blæd and blysse and eac byrga geniht.",
+"Joy is had by the one who knows little of woe, pain or sorrow, and has prosperity and bliss and plenty of strongholds as well."
+],
+"alt": [
+"wen",
+"wenne",
+"wyn"
+],
+"ms": "wyn",
+"logo": [
+{
+"t": "Birkett lists <i>wynn</i> among the runes “used on occasion” as abbreviations for their names in Anglo-Saxon manuscripts.",
+"src": [
+[
+"Wikipedia, “Ideographic rune” (Anglo-Saxon section, quoting Birkett)",
+"https://en.wikipedia.org/wiki/Ideographic_rune"
+]
+]
+},
+{
+"t": "One of the runes in Cynewulf’s runic signature. In <i>The Fates of the Apostles</i>, <i>Juliana</i>, <i>Elene</i> and <i>Christ II</i> the letters of his name (C-Y-N-(E)-W-U-L-F) are woven into the verse as runes that also stand for words fitting the passage.",
+"src": [
+[
+"Wikipedia, “Cynewulf” (Runic signature)",
+"https://en.wikipedia.org/wiki/Cynewulf"
+]
+]
+}
+]
+},
+{
+"n": 9,
+"g": "ᚻ",
+"name": "hæġl",
+"link": "hæġl@noun",
+"mean": "hail",
+"sound": "/h/, [x], [ç]",
+"tr": "h",
+"elder": [
+"ᚺ",
+"*hagalaz"
+],
+"note": "Early English inscriptions use the single-barred ᚺ; the double-barred ᚻ is first attested in 698.",
+"poem": [
+"Hægl byþ hwitust corna; hwyrft hit of heofones lyfte,<br>wealcaþ hit windes scura; weorþeþ hit to wætere syððan.",
+"Hail is the whitest of grains; it whirls from heaven’s air, wind-gusts toss it, then it turns to water."
+],
+"alt": [
+"hægil"
+],
+"ms": "hægil"
+},
+{
+"n": 10,
+"g": "ᚾ",
+"name": "nȳd",
+"link": "nȳd@noun",
+"mean": "need, plight",
+"sound": "/n/",
+"tr": "n",
+"elder": [
+"ᚾ",
+"*naudiz"
+],
+"poem": [
+"Nyd byþ nearu on breostan; weorþeþ hi þeah oft niþa bearnum<br>to helpe and to hæle gehwæþre, gif hi his hlystaþ æror.",
+"Need is tight in the chest; yet it often turns into help and healing for the children of men, if they heed it in time."
+],
+"alt": [
+"nied",
+"næd"
+],
+"ms": "næd",
+"logo": [
+{
+"t": "One of the runes in Cynewulf’s runic signature. In <i>The Fates of the Apostles</i>, <i>Juliana</i>, <i>Elene</i> and <i>Christ II</i> the letters of his name (C-Y-N-(E)-W-U-L-F) are woven into the verse as runes that also stand for words fitting the passage.",
+"src": [
+[
+"Wikipedia, “Cynewulf” (Runic signature)",
+"https://en.wikipedia.org/wiki/Cynewulf"
+]
+]
+}
+]
+},
+{
+"n": 11,
+"g": "ᛁ",
+"name": "īs",
+"link": "īs@noun",
+"mean": "ice",
+"sound": "/i(ː)/",
+"tr": "i",
+"elder": [
+"ᛁ",
+"*īsaz"
+],
+"poem": [
+"Is byþ ofereald, ungemetum slidor,<br>glisnaþ glæshluttur gimmum gelicust,<br>flor forste geworuht, fæger ansyne.",
+"Ice is very cold and boundlessly slippery; it glitters glass-clear, most like gems, a floor made by frost, fair to see."
+],
+"alt": [
+"is"
+],
+"ms": "is",
+"logo": [
+{
+"t": "In one manuscript (Corpus Christi College, MS 41) a writer seems to use runes like Roman numerals: <span class=\"rune\">ᛉᛁᛁ⁊ᛉᛉᛉᛋᚹᛁᚦᚩᚱ</span>, which likely means “12 & 30 more”, with ᛉ as ten and ᛁ as one.",
+"src": [
+[
+"Wikipedia, “Anglo-Saxon runes” (Usage and culture)",
+"https://en.wikipedia.org/wiki/Anglo-Saxon_runes"
+]
+]
+}
+]
+},
+{
+"n": 12,
+"g": "ᛄ",
+"name": "ġēr",
+"link": "ġēr@noun",
+"mean": "year, harvest",
+"sound": "/j/",
+"tr": "j",
+"elder": [
+"ᛃ",
+"*jēra-"
+],
+"note": "Also written ᛡ in inscriptions; manuscripts give ᛡ the separate name īor (see below).",
+"poem": [
+"Ger byþ gumena hiht, ðonne God læteþ,<br>halig heofones cyning, hrusan syllan<br>beorhte bleda beornum ond ðearfum.",
+"Harvest is men’s hope, when God, the holy king of heaven, lets the earth give bright fruits to rich and needy."
+],
+"alt": [
+"gear",
+"ger",
+"gær"
+],
+"ms": "gær"
+},
+{
+"n": 13,
+"g": "ᛇ",
+"name": "ēoh",
+"link": "ēoh@noun~yew",
+"mean": "yew tree",
+"sound": "/i(ː)/, [x], [ç]",
+"tr": "ï",
+"elder": [
+"ᛇ",
+"*ī(h)waz"
+],
+"poem": [
+"Eoh byþ utan unsmeþe treow,<br>heard hrusan fæst, hyrde fyres,<br>wyrtrumun underwreþyd, wyn on eþle.",
+"The yew is a tree rough on the outside, hard and fast in the earth, keeper of fire, propped by its roots, a joy on an estate."
+],
+"alt": [
+"eoh",
+"ih",
+"iw"
+],
+"ms": "ih"
+},
+{
+"n": 14,
+"g": "ᛈ",
+"name": "peorð",
+"link": "peorþ@noun",
+"mean": "unknown",
+"sound": "/p/",
+"tr": "p",
+"elder": [
+"ᛈ",
+"*perþō"
+],
+"note": "The meaning of the name is unknown; the poem only says it brings “play and laughter”.",
+"poem": [
+"Peorð byþ symble plega and hlehter<br>wlancum [on middum], ðar wigan sittaþ<br>on beorsele bliþe ætsomne.",
+"Peorð is always play and laughter for the proud, where warriors sit happily together in the beer-hall."
+],
+"alt": [
+"peord",
+"peorth",
+"peorþ"
+],
+"ms": "peord"
+},
+{
+"n": 15,
+"g": "ᛉ",
+"name": "eolh",
+"link": "eolh@noun",
+"mean": "unknown, perhaps “elk” (the poem says <i>eolh-secg</i> “elk-sedge”)",
+"sound": "none: used only to write Latin x",
+"tr": "x",
+"elder": [
+"ᛉ",
+"*algiz"
+],
+"poem": [
+"Eolh-secg eard hæfþ oftust on fenne<br>wexeð on wature, wundaþ grimme,<br>blode breneð beorna gehwylcne<br>ðe him ænigne onfeng gedeþ.",
+"Elk-sedge usually lives in the fen; it grows in water and wounds grimly, burning with blood any man who grabs it."
+],
+"alt": [
+"eolh-secg",
+"eolhx",
+"ilcs"
+],
+"ms": "ilcs",
+"logo": [
+{
+"t": "In one manuscript (Corpus Christi College, MS 41) a writer seems to use runes like Roman numerals: <span class=\"rune\">ᛉᛁᛁ⁊ᛉᛉᛉᛋᚹᛁᚦᚩᚱ</span>, which likely means “12 & 30 more”, with ᛉ as ten and ᛁ as one.",
+"src": [
+[
+"Wikipedia, “Anglo-Saxon runes” (Usage and culture)",
+"https://en.wikipedia.org/wiki/Anglo-Saxon_runes"
+]
+]
+}
+]
+},
+{
+"n": 16,
+"g": "ᛋ",
+"name": "siġel",
+"link": "siġel@noun~sun",
+"mean": "sun",
+"sound": "/s/, [z] between voiced sounds",
+"tr": "s",
+"elder": [
+"ᛊ",
+"*sōwilō"
+],
+"poem": [
+"Sigel semannum symble biþ on hihte,<br>ðonne hi hine feriaþ ofer fisces beþ,<br>oþ hi brimhengest bringeþ to lande.",
+"The sun is always a hope to sailors as they cross the fish’s bath, until the sea-horse (the ship) brings them to land."
+],
+"alt": [
+"sygil"
+],
+"ms": "sygil"
+},
+{
+"n": 17,
+"g": "ᛏ",
+"name": "tīr",
+"link": "tīr@noun",
+"mean": "unknown: <i>tīr</i> “glory”, or the god Tīw",
+"sound": "/t/",
+"tr": "t",
+"elder": [
+"ᛏ",
+"*tīwaz"
+],
+"note": "Some manuscripts name it <i>ti</i> or <i>tyr</i>.",
+"poem": [
+"Tir biþ tacna sum, healdeð trywa wel<br>wiþ æþelingas; a biþ on færylde<br>ofer nihta genipu, næfre swiceþ.",
+"Tir is a sign; it keeps faith well with princes; it is always on its course over the mists of night and never fails."
+],
+"alt": [
+"ti",
+"tiw",
+"tyr"
+],
+"ms": "ti"
+},
+{
+"n": 18,
+"g": "ᛒ",
+"name": "beorc",
+"link": "beorc@noun",
+"mean": "birch tree",
+"sound": "/b/",
+"tr": "b",
+"elder": [
+"ᛒ",
+"*berkanan"
+],
+"poem": [
+"Beorc byþ bleda leas, bereþ efne swa ðeah<br>tanas butan tudder, biþ on telgum wlitig,<br>heah on helme hrysted fægere,<br>geloden leafum, lyfte getenge.",
+"The birch has no fruit, yet bears shoots without seed; it is lovely in its branches, high in its crown, beautifully adorned, laden with leaves, touching the sky."
+],
+"alt": [
+"berc"
+],
+"ms": "berc"
+},
+{
+"n": 19,
+"g": "ᛖ",
+"name": "eh",
+"link": "eh@noun",
+"mean": "horse, steed",
+"sound": "/e(ː)/",
+"tr": "e",
+"elder": [
+"ᛖ",
+"*ehwaz"
+],
+"poem": [
+"Eh byþ for eorlum æþelinga wyn,<br>hors hofum wlanc, ðær him hæleþ ymb[e]<br>welege on wicgum wrixlaþ spræce<br>and biþ unstyllum æfre frofur.",
+"The horse is the joy of princes among warriors, a steed proud of its hooves, when wealthy riders trade talk about it; and to the restless it is always a comfort."
+],
+"alt": [
+"eh"
+],
+"ms": "eh",
+"logo": [
+{
+"t": "One of the runes in Cynewulf’s runic signature. In <i>The Fates of the Apostles</i>, <i>Juliana</i>, <i>Elene</i> and <i>Christ II</i> the letters of his name (C-Y-N-(E)-W-U-L-F) are woven into the verse as runes that also stand for words fitting the passage.",
+"src": [
+[
+"Wikipedia, “Cynewulf” (Runic signature)",
+"https://en.wikipedia.org/wiki/Cynewulf"
+]
+]
+}
+]
+},
+{
+"n": 20,
+"g": "ᛗ",
+"name": "mann",
+"link": "mann@noun",
+"mean": "man, person",
+"sound": "/m/",
+"tr": "m",
+"elder": [
+"ᛗ",
+"*mannaz"
+],
+"note": "Used in manuscripts as a shorthand for the word <i>mann</i>.",
+"poem": [
+"Man byþ on myrgþe his magan leof:<br>sceal þeah anra gehwylc oðrum swican,<br>forðum drihten wyle dome sine<br>þæt earme flæsc eorþan betæcan.",
+"A man in his joy is dear to his kinsman; yet each must fail the other, for the Lord by his decree will hand that poor flesh to the earth."
+],
+"alt": [
+"man",
+"mon"
+],
+"ms": "mon",
+"logo": [
+{
+"t": "Written for the word <i>mann</i> “man” in manuscripts such as the <i>Beowulf</i> manuscript (Nowell Codex) and the Exeter Book.",
+"src": [
+[
+"Wikipedia, “Anglo-Saxon runes” (Usage and culture)",
+"https://en.wikipedia.org/wiki/Anglo-Saxon_runes"
+],
+[
+"Wikipedia, “Ideographic rune” (Anglo-Saxon section, quoting Birkett)",
+"https://en.wikipedia.org/wiki/Ideographic_rune"
+]
+]
+},
+{
+"t": "Birkett lists <i>mon</i> among the runes “used on occasion” as abbreviations in Anglo-Saxon manuscripts.",
+"src": [
+[
+"Wikipedia, “Ideographic rune” (Anglo-Saxon section, quoting Birkett)",
+"https://en.wikipedia.org/wiki/Ideographic_rune"
+]
+]
+}
+]
+},
+{
+"n": 21,
+"g": "ᛚ",
+"name": "lagu",
+"link": "lagu@noun~sea",
+"mean": "water, sea, lake",
+"sound": "/l/",
+"tr": "l",
+"elder": [
+"ᛚ",
+"*laguz"
+],
+"poem": [
+"Lagu byþ leodum langsum geþuht,<br>gif hi sculun neþan on nacan tealtum<br>and hi sæyþa swyþe bregaþ<br>and se brimhengest bridles ne gym[eð].",
+"Water seems endless to people when they must venture out in a rocking ship, the sea-waves terrify them, and the sea-horse ignores its bridle."
+],
+"alt": [
+"lagu"
+],
+"ms": "lagu",
+"logo": [
+{
+"t": "One of the runes in Cynewulf’s runic signature. In <i>The Fates of the Apostles</i>, <i>Juliana</i>, <i>Elene</i> and <i>Christ II</i> the letters of his name (C-Y-N-(E)-W-U-L-F) are woven into the verse as runes that also stand for words fitting the passage.",
+"src": [
+[
+"Wikipedia, “Cynewulf” (Runic signature)",
+"https://en.wikipedia.org/wiki/Cynewulf"
+]
+]
+}
+]
+},
+{
+"n": 22,
+"g": "ᛝ",
+"name": "ing",
+"link": "Ing@name",
+"mean": "Ing, a hero or god (perhaps Ingui-Frea)",
+"sound": "/ŋɡ/, /ŋ/",
+"tr": "ŋ",
+"elder": [
+"ᛜ",
+"*ingwaz"
+],
+"poem": [
+"Ing wæs ærest mid East-Denum<br>gesewen secgun, oþ he siððan est<br>ofer wæg gewat; wæn æfter ran;<br>ðus Heardingas ðone hæle nemdun.",
+"Ing was first seen by men among the East-Danes, until he later went away over the waves, with his wagon running after; so the Heardings named the hero."
+],
+"alt": [
+"ing"
+],
+"ms": "ing"
+},
+{
+"n": 23,
+"g": "ᛟ",
+"name": "ēþel",
+"link": "ēþel@noun",
+"mean": "inherited land, homeland",
+"sound": "/ø(ː)/",
+"tr": "œ",
+"elder": [
+"ᛟ",
+"*ōþala-"
+],
+"note": "Used in the <i>Beowulf</i> manuscript as shorthand for the word <i>ēþel</i>.",
+"poem": [
+"Eþel byþ oferleof æghwylcum men,<br>gif he mot ðær rihtes and gerysena on<br>brucan on bolde bleadum oftast.",
+"Home is very dear to every man, if there in his house he may enjoy what is right and fitting, with plenty most of the time."
+],
+"alt": [
+"eðel",
+"oedil",
+"œþel"
+],
+"ms": "oedil",
+"logo": [
+{
+"t": "Written for the word <i>ēþel</i> “homeland” in the <i>Beowulf</i> manuscript (British Library, Cotton Vitellius A XV, fol. 141v): <i>þǫnǫn hé ge·sóhte · swę́sne ᛟ</i>, “from there he sought out his beloved [homeland]”.",
+"src": [
+[
+"Wikipedia, “Anglo-Saxon runes” (Usage and culture)",
+"https://en.wikipedia.org/wiki/Anglo-Saxon_runes"
+],
+[
+"Wikipedia, “Ideographic rune” (Anglo-Saxon section, quoting Birkett)",
+"https://en.wikipedia.org/wiki/Ideographic_rune"
+]
+]
+}
+]
+},
+{
+"n": 24,
+"g": "ᛞ",
+"name": "dæġ",
+"link": "dæġ@noun",
+"mean": "day",
+"sound": "/d/",
+"tr": "d",
+"elder": [
+"ᛞ",
+"*dagaz"
+],
+"poem": [
+"Dæg byþ drihtnes sond, deore mannum,<br>mære metodes leoht, myrgþ and tohiht<br>eadgum and earmum, eallum brice.",
+"Day is the Lord’s messenger, dear to men, the Creator’s glorious light, joy and hope to rich and poor, useful to all."
+],
+"alt": [
+"dæg"
+],
+"ms": "dæg",
+"logo": [
+{
+"t": "Birkett lists <i>dæg</i> among the runes “used on occasion” as abbreviations for their names in Anglo-Saxon manuscripts.",
+"src": [
+[
+"Wikipedia, “Ideographic rune” (Anglo-Saxon section, quoting Birkett)",
+"https://en.wikipedia.org/wiki/Ideographic_rune"
+]
+]
+}
+]
+},
+{
+"n": 25,
+"g": "ᚪ",
+"name": "āc",
+"link": "āc@noun",
+"mean": "oak tree",
+"sound": "/ɑ(ː)/",
+"tr": "a",
+"elder": [
+"ᚨ",
+"*ansuz"
+],
+"note": "New Anglo-Frisian rune, split from Elder ᚨ; earliest examples 6th century.",
+"poem": [
+"Ac byþ on eorþan elda bearnum<br>flæsces fodor, fereþ gelome<br>ofer ganotes bæþ; garsecg fandaþ<br>hwæþer ac hæbbe æþele treowe.",
+"On land the oak feeds the flesh (of pigs) for the children of men; often it travels over the gannet’s bath (as a ship), and the ocean tests whether the oak keeps noble faith."
+],
+"alt": [
+"ac"
+],
+"ms": "ac"
+},
+{
+"n": 26,
+"g": "ᚫ",
+"name": "æsċ",
+"link": "æsċ@noun",
+"mean": "ash tree",
+"sound": "/æ(ː)/",
+"tr": "æ",
+"elder": [
+"ᚨ",
+"*ansuz"
+],
+"note": "New Anglo-Frisian rune, split from Elder ᚨ.",
+"poem": [
+"Æsc biþ oferheah, eldum dyre<br>stiþ on staþule, stede rihte hylt,<br>ðeah him feohtan on firas monige.",
+"The ash is very tall and dear to men, sturdy on its base; it holds its ground rightly though many men fight against it."
+],
+"alt": [
+"æsc"
+],
+"ms": "æsc"
+},
+{
+"n": 27,
+"g": "ᚣ",
+"name": "ȳr",
+"link": "ȳr@noun",
+"mean": "unknown, perhaps “bow”",
+"sound": "/y(ː)/",
+"tr": "y",
+"note": "English addition with no Elder ancestor; the name may just be modelled on <i>ūr</i>.",
+"poem": [
+"Yr byþ æþelinga and eorla gehwæs<br>wyn and wyrþmynd, byþ on wicge fæger,<br>fæstlic on færelde, fyrdgeatewa sum.",
+"Ȳr is a joy and an honour to every prince and nobleman; it looks fine on horseback and is reliable on a journey, a piece of war-gear."
+],
+"alt": [
+"yr"
+],
+"ms": "yr",
+"logo": [
+{
+"t": "One of the runes in Cynewulf’s runic signature. In <i>The Fates of the Apostles</i>, <i>Juliana</i>, <i>Elene</i> and <i>Christ II</i> the letters of his name (C-Y-N-(E)-W-U-L-F) are woven into the verse as runes that also stand for words fitting the passage.",
+"src": [
+[
+"Wikipedia, “Cynewulf” (Runic signature)",
+"https://en.wikipedia.org/wiki/Cynewulf"
+]
+]
+}
+]
+},
+{
+"n": 28,
+"g": "ᛡ",
+"name": "īor",
+"mean": "unknown, perhaps “beaver” or “eel”; the poem calls it a river-fish that feeds on land",
+"sound": "/i(ː)o/?",
+"tr": "io",
+"note": "Page called it a pseudo-rune: in inscriptions ᛡ is only a variant of ġēr.",
+"poem": [
+"Iar byþ eafix and ðeah a bruceþ<br>fodres on foldan, hafaþ fægerne eard<br>wætre beworpen, ðær he wynnum leofaþ.",
+"Īor is a river-fish, yet always takes its food on land; it has a fair home ringed with water, where it lives in delight."
+],
+"alt": [
+"iar"
+]
+},
+{
+"n": 29,
+"g": "ᛠ",
+"name": "ēar",
+"mean": "unknown, perhaps “earth” (the dictionary’s <i>ēar</i> means “wave” or “ear of grain”)",
+"sound": "/æ(ː)ɑ/",
+"tr": "ea",
+"note": "English addition with no Elder ancestor.",
+"poem": [
+"Ear byþ egle eorla gehwylcun,<br>ðonn[e] fæstlice flæsc onginneþ,<br>hraw colian, hrusan ceosan<br>blac to gebeddan; bleda gedreosaþ,<br>wynna gewitaþ, wera geswicaþ.",
+"Ēar is hateful to every nobleman, when the flesh, the corpse, steadily begins to grow cold and, pale, to choose the earth as its bedfellow; fruits fall, joys pass away, promises fail."
+],
+"alt": [
+"ear"
+],
+"ms": "ear"
+},
+{
+"n": 0,
+"g": "ᛣ",
+"name": "calc",
+"mean": "chalk? chalice? sandal?",
+"sound": "/k/",
+"tr": "k",
+"elder": [
+"ᚳ",
+"modified ċēn"
+],
+"note": "Ruthwell Cross, Bramham Moor ring, Kingmoor ring and manuscripts. A Northumbrian-era addition, made from ċēn to separate hard /k/ from palatalized c.",
+"alt": []
+},
+{
+"n": 0,
+"g": "ᚸ",
+"name": "gār",
+"link": "gār@noun",
+"mean": "spear",
+"sound": "/ɡ/, [ɣ]",
+"tr": "ḡ",
+"elder": [
+"ᚷ",
+"modified ġyfu"
+],
+"note": "Ruthwell Cross, probably Bewcastle Cross, and manuscripts. Made from ġyfu to separate hard /g/ from palatalized g.",
+"alt": []
+},
+{
+"n": 0,
+"g": "ᛢ",
+"name": "cweorð",
+"mean": "unknown",
+"sound": "/k/? (for Latin q?)",
+"tr": "q",
+"note": "Manuscripts only. Page thought it pointless, perhaps invented just to match Latin Q.",
+"alt": [
+"cweorth",
+"cweorþ"
+]
+},
+{
+"n": 0,
+"g": "ᛥ",
+"name": "stān",
+"link": "stān@noun",
+"mean": "stone",
+"sound": "/st/",
+"tr": "st",
+"note": "Manuscripts only; another of Page’s “pseudo-runes”.",
+"alt": []
+},
+{
+"n": 0,
+"g": "ᛤ",
+"name": "(no name)",
+"mean": "unknown",
+"sound": "/k/",
+"tr": "k̄",
+"note": "Found only on the Ruthwell Cross, where it seems to replace calc before a fronted vowel.",
+"alt": []
+}
+]

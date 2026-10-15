@@ -14,20 +14,24 @@ const L=()=>JSON.parse(localStorage.oeLists||'{"My words":[]}'),SL=l=>localStora
 const CURATED={'Beowulf essentials':['cyning','eorl','þegn','sweord','mōd','heofon','land','wulf'],'Everyday nouns':['hūs','mann','wīf','cild','hlāf','wæter','fȳr','hund','hors','dæg','niht'],'Core strong verbs':['beran','singan','drincan','etan','sēon','cuman','faran','rīdan','wrītan','cweþan']};
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let IDX=[],NK=[],NG=[],FORMS=null;const SH={},CH=250;
-const ready=fetch('data/index.json').then(r=>r.json()).then(d=>{IDX=d;NK=d.map(e=>norm(e[0]));NG=d.map(e=>norm(e[2]))});
+const RID={};const ready=fetch('data/index.json').then(r=>r.json()).then(d=>{IDX=d;NK=d.map(e=>norm(e[0]));NG=d.map(e=>norm(e[2]));d.forEach((e,i)=>{if(e[1]==='rune')RID[e[0]]=i})});
+// a rune glyph (or several) as link(s) to the rune entries
+const rlink=(t,cls='')=>[...t].map(c=>RID[c]!=null?`<a class="rlk${cls}" href="#w/${RID[c]}" title="Rune entry: ${esc(IDX[RID[c]][2])}">${c}</a>`:esc(c)).join('');
+const rtile=r=>{const g=[...r[1]];return g.length===1&&RID[r[1]]!=null?`<a class="rb" href="#w/${RID[r[1]]}"><b>${r[1]}</b>${esc(r[2])}<small>${esc(r[3]||'·')}</small></a>`:`<div class="rb"><b>${rlink(r[1])}</b>${esc(r[2])}<small>${esc(r[3]||'·')}</small></div>`};
+const posb=p=>p==='rune'?'<span class="posrune">rune</span>':`<span class="pos">${esc(p)}</span>`;
 const formsReady=ready.then(()=>fetch('data/forms.json')).then(r=>r.json()).then(d=>FORMS=d);
 async function getE(i){const k=String(Math.floor(i/CH)).padStart(3,'0');SH[k]=SH[k]||fetch(`data/e/${k}.json`).then(r=>r.json());return (await SH[k])[i%CH]}
 const isFormOf=i=>/\b(inflection|singular|plural|form|participle|tense|spelling|comparative|superlative|imperative|subjunctive|indicative|dative|genitive|accusative|nominative|instrumental) of /i.test(IDX[i][2]);
 function find(w){const k=norm(w);let best=-1;for(let i=0;i<NK.length;i++)if(NK[i]===k){if(best<0)best=i;if(IDX[i][0]===w&&!isFormOf(i))return i;if(best>=0&&isFormOf(best)&&!isFormOf(i))best=i}return best}
-function row(i){const[w,p,g,gd]=IDX[i];return `<div class="card" onclick="location.hash='w/${i}'"><span class="hw">${esc(w)}</span><span class="rune">${rs(w)}</span> <span class="pos">${esc(p)}</span>${gbadge(gd)}<div>${esc(g)}</div></div>`}
+function row(i){const[w,p,g,gd]=IDX[i];return `<div class="card" onclick="location.hash='w/${i}'"><span class="hw${p==='rune'?' hwr':''}">${esc(w)}</span>${p==='rune'?'':`<span class="rune">${rs(w)}</span>`} ${posb(p)}${gbadge(gd)}<div>${esc(g)}</div></div>`}
 const GN_={m:['masc.','masculine'],f:['fem.','feminine'],n:['neut.','neuter']};
 function gbadge(g,long){if(!g)return'';return `<span class="gb" title="grammatical gender${g.length>1?' (varies)':''}">${[...g].map(c=>`<span class="g ${c}" title="${GN_[c][1]}">${long?GN_[c][1]:GN_[c][0]}</span>`).join(g.length>1?'<span class="gor">/</span>':'')}</span>`}
 const MAX=100;
 async function search(q){await ready;const raw=q.trim();q=norm(raw);if(!q){M.innerHTML=`<p>${IDX.length.toLocaleString()} Old English entries. Search above, or try <a href="#" onclick="$('#q').value='cyning';search('cyning');return false">cyning</a>, <a href="#" onclick="$('#q').value='king';search('king');return false">king</a>, <a href="#" onclick="$('#q').value='sungon';search('sungon');return false">sungon</a>.</p>`;return}
  const sc=new Map,add=(i,s)=>{if(!sc.has(i)||sc.get(i)<s)sc.set(i,s)};
  const wre=new RegExp('(^|[^a-z])'+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'($|[^a-z])');
- for(let i=0;i<NK.length;i++){const k=NK[i];if(k===q)add(i,100);else if(k.startsWith(q))add(i,60-Math.min(k.length,40)/2);else if(k.includes(q))add(i,20);
-  const g=NG[i];if(g.includes(q))add(i,wre.test(g)?(g===q||g.startsWith(q+' ')||g.startsWith('to '+q)?75:45):10)}
+ for(let i=0;i<NK.length;i++){const k=NK[i];if(k===q)add(i,IDX[i][1]==='rune'?110:100);else if(k.startsWith(q))add(i,60-Math.min(k.length,40)/2);else if(k.includes(q))add(i,20);
+  const g=NG[i];if(g.includes(q))add(i,wre.test(g)?(g===q||g.startsWith(q+' ')||g.startsWith('to '+q)?75:IDX[i][1]==='rune'?70:45):10)}
  if(FORMS===null)await formsReady;(FORMS[q]||[]).forEach(i=>add(i,90));
  if(raw!==$('#q').value.trim())return;
  const r=[...sc].map(([i,s])=>[i,s-(isFormOf(i)?15:0)]).sort((a,b)=>b[1]-a[1]||NK[a[0]].length-NK[b[0]].length).map(x=>x[0]);
@@ -75,11 +79,11 @@ function formsTable(e){if(e.p==='verb'){const R=vclass(e.f);if(R)return verbTabl
   const cls=k=>'r-'+({nominative:'nom',accusative:'acc',genitive:'gen',dative:'dat',instrumental:'ins'}[k.split(' ')[0]]);
   return`<div class="caselegend"><span class="c-nom">nominative = subject</span><span class="c-acc">accusative = object</span><span class="c-gen">genitive = of / ’s</span><span class="c-dat">dative = to / for</span><span class="c-ins">instrumental = by / with</span> <a href="#grammar/nouns/four">what are cases?</a></div><div class="tw"><table class="ftab"><tr><th>Case</th><th>Singular</th><th>Plural</th></tr>${Object.entries(g).sort((a,b)=>ORD.indexOf(a[0].split(' ')[0])-ORD.indexOf(b[0].split(' ')[0])).map(([k,v])=>`<tr class="${cls(k)}"><td>${esc(k)}</td><td>${esc([...v.sg].join(', '))}</td><td>${esc([...v.pl].join(', '))}</td></tr>`).join('')}</table></div>`}
  const seen=new Set;return`<table><tr><th>Form</th><th>Grammar</th></tr>${fs.filter(f=>{const k=f.f+f.t;if(seen.has(k))return 0;seen.add(k);return 1}).map(f=>`<tr><td>${esc(f.f)}</td><td>${esc(f.t.join(' '))}</td></tr>`).join('')}</table>`}
-async function entry(i){await ready;if(!IDX[i]){M.innerHTML='<p>Entry not found.</p>';return}M.innerHTML='<p>Loading…</p>';const e=await getE(i),l=L();
- M.innerHTML=`<div class="card" style="cursor:default"><span class="hw" style="font-size:34px">${esc(e.w)}</span><span class="rune" style="font-size:30px">${rs(e.w)}</span>${gbadge(e.g,1)}
+async function entry(i){await ready;if(!IDX[i]){M.innerHTML='<p>Entry not found.</p>';return}M.innerHTML='<p>Loading…</p>';const e=await getE(i),l=L();if(e.p==='rune')return runeEntry(i,e);
+ M.innerHTML=`<div class="card" style="cursor:default"><span class="hw" style="font-size:34px">${esc(e.w)}</span><span class="rune" style="font-size:30px">${rs(e.w)}</span>${gbadge(e.g,1)}${(e.rn||[]).map(([j,g])=>`<a class="rchip" href="#w/${j}" title="${esc(IDX[j][2])}">Rune: <span>${g}</span></a>`).join('')}
 <div class="pos">${esc(e.p)} ${e.i?'· '+esc(e.i):''}</div><ol>${e.s.map(s=>`<li>${esc(s[0])}${s[1].map(x=>`<div class="ex">${esc(x[0])}${x[1]?`<br><i>${esc(x[1])}</i>`:''}</div>`).join('')}</li>`).join('')}</ol>
 <select id="ls">${Object.keys(l).map(k=>`<option>${esc(k)}</option>`)}</select><button onclick="addTo(${i})">+ Add to list</button>
-<h3>Runes (Anglo-Saxon futhorc)</h3><div class="runes">${runes(e.w).map(r=>`<div class="rb"><b>${r[1]}</b>${r[2]}<small>${r[3]}</small></div>`).join('')}</div>
+<h3>Runes (Anglo-Saxon futhorc)</h3><div class="runes">${runes(e.w).map(rtile).join('')}</div>
 <h3>Etymology / components</h3><p>${esc(e.y)||'—'}</p>${e.d.length?`<p><b>Derived:</b> ${e.d.map(x=>`<a href="#" onclick="$('#q').value=this.textContent;location.hash='';search(this.textContent);return false">${esc(x)}</a>`).join(', ')}</p>`:''}
 <h3>All forms</h3>${/^(sē|þæt|sēo)$/.test(e.w)&&/arti|det|pron/.test(e.p)?'<p>See the colour-coded <a href="#grammar/nouns/article">table of sē / sēo / þæt</a> in the Nouns guide.</p>':''}${formsTable(e)}</div>`}
 function addTo(i){const l=L(),k=$('#ls').value,w=IDX[i][0];if(!l[k].includes(w))l[k].push(w);SL(l);alert('Added to '+k)}
