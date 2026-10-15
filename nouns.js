@@ -5,7 +5,7 @@ function P(cap,cols){const b=f=>f.split('/').map(x=>x.includes('|')?x.replace(/\
  return `<div class="tw"><table class="gt par"><caption>${cap}</caption><tr><th></th>${cols.map(c=>`<th colspan="2">{{${c[0]}|${c[1]}}}<div class="gd">${c[2]}</div></th>`).join('')}</tr>
  <tr><th></th>${cols.map(()=>'<th>Singular</th><th>Plural</th>').join('')}</tr>${R.map((r,i)=>`<tr class="r-${RC[i]}"><th class="c-${RC[i]}">${r}</th>${cols.map(c=>`<td>${b(c[3][i])}</td><td>${b(c[4][i])}</td>`).join('')}</tr>`).join('')}</table></div>`}
 // interlinear gloss: [[oe, lemma or '', gloss, case-tag], ...]
-function IL(words,tr){return `<div class="il">${words.map(([oe,lem,gl,tag])=>`<div class="ilw"><span class="oe">${oe}</span>${lem?`<a class="exw mini" data-w="${lem}" href="#dict"><span class="rune">${rs(lem)}</span></a>`:''}<span class="ilg">${gl}</span>${tag?`<span class="ilt ${tag.split(' ')[0]}">${tag}</span>`:''}</div>`).join('')}</div><p class="ilx">“${tr}”</p>`}
+function IL(words,tr){return `<div class="il">${words.map(([oe,lem,gl,tag])=>`<div class="ilw"><span class="oe">${oe}</span>${lem?`<a class="exw mini" data-w="${lem.split('@')[0]}" data-p="${/^(sē|sēo|þæt|þā|þone|þæs|þǣre|þām|þāra|þȳ|þon|ġē|ēow|man|hwæt|hwā|mīn|þīn|his|þēs|hē|hēo|wē|iċ|wit|þe)$/.test(lem)?'pron,det,arti,part':''}" href="#dict"><span class="rune">${rs(lem)}</span></a>`:''}<span class="ilg">${gl}</span>${tag?`<span class="ilt ${tag.split(' ')[0]}">${tag}</span>`:''}</div>`).join('')}</div><p class="ilx">“${tr}”</p>`}
 const GN=()=>`
 <p class="lead">In modern English, word order tells you who did what: <i>the dog bit the man</i> and <i>the man bit the dog</i> mean different things. Old English shows this mainly with the <b>endings</b> of words, and with the form of the word for “the”. Once you can read those endings, sentences that look jumbled start to make sense. This guide explains <b>case</b>, <b>gender</b> and the main noun patterns, all with real words from the dictionary.</p>
 <div class="toc card"><b>Contents</b><ol>
@@ -21,7 +21,7 @@ const GN=()=>`
 <tr><td><b>who</b> / <b>whom</b> / <b>whose</b></td><td>{{hwā|who}} / {{hwām|to whom}} / {{hwæs|whose}}</td><td><i>whom</i> comes from the Old English <b>dative</b> hwām. The old accusative, {{hwone|whom (acc.)}}, has not survived.</td></tr>
 <tr><td>the king<b>’s</b> son</td><td>cyning<b>es</b> sunu</td><td>The possessive <b>’s</b> is the Old English genitive ending <b>-es</b> (the apostrophe was added much later).</td></tr>
 <tr><td><b>why</b>; “<b>the</b> more <b>the</b> merrier”</td><td>{{hwȳ|why}}, {{þȳ|by that}}</td><td>Fossils of the <b>instrumental</b> case of <i>who</i> and <i>that</i>.</td></tr></table>
-<p>In Old English, every noun, adjective and pronoun, and the word for “the”, changes like <i>he/him/his</i>.</p>
+<p>In Old English, every noun, adjective and pronoun, and the word for “the”, changes like <i>he/him/his</i>. (Full pronoun tables are in the <a href="#grammar/pronouns">Pronouns guide</a>.)</p>
 
 <h3 id="four">2. The four cases (and the instrumental)</h3>
 <table class="gt"><tr><th>Case</th><th>Job</th><th>Modern clue</th><th>Example</th></tr>

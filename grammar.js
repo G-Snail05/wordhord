@@ -1,16 +1,16 @@
 // Grammar section: hub + guides. Example words written as {{word|gloss|ipa}} link to dictionary entries.
 const GUIDES=[{id:'letters',title:'Letters & Pronunciation',level:'Beginner',blurb:'The alphabet, the special letters þ ð æ ƿ, and how every sound is pronounced. Start here.',live:true},
 {id:'nouns',title:'Nouns, Cases & Gender',level:'Beginner',blurb:'Why words change their endings: the four cases, three genders, and the word for “the”.',live:true},
-{id:'pronouns',title:'Pronouns & “the”',level:'Beginner',blurb:'iċ, þū, hē, hēo, hit, and the many forms of se/sēo/þæt.'},
+{id:'pronouns',title:'Pronouns',level:'Beginner',blurb:'iċ, þū, wit, hē, hēo, hit: personal, possessive, demonstrative, question and relative pronouns.',live:true},
 {id:'verbs',title:'Strong & Weak Verbs',level:'Intermediate',blurb:'singan, sang, sungon: vowel-changing verbs and the regular -ode verbs.'},
 {id:'adjectives',title:'Adjectives: Strong & Weak',level:'Intermediate',blurb:'Two sets of endings, and when to use each.'},
 {id:'syntax',title:'Word Order & Reading Verse',level:'Intermediate',blurb:'Verb-second order, alliteration and half-lines.'}];
 function grammarHub(){M.innerHTML=`<div class="crumbs"><a href="#">Home</a> › Grammar</div><h2 class="pgtitle">Grammar guides</h2><p>Short, practical guides to reading Old English, written for people who only know modern English. Example words link to their dictionary entries.</p>
 <div class="quick">${GUIDES.map((g,i)=>g.live?`<a class="card q" href="#grammar/${g.id}"><span class="tag">${g.level}</span><b>${i+1}. ${g.title}</b><span>${g.blurb}</span></a>`:`<div class="card q soon"><span class="tag" style="background:#999">Coming soon</span><b>${i+1}. ${g.title}</b><span>${g.blurb}</span></div>`).join('')}</div>`}
-function exw(w,g,ipa){return `<a class="exw" data-w="${esc(w)}" href="#dict"><b>${esc(w)}</b><span class="rune">${rs(w)}</span>${ipa?`<span class="ipa">${esc(ipa)}</span>`:''}${g?`<span class="gl">${esc(g)}</span>`:''}</a>`}
+function exw(w,g,ipa){let p='';[w,p='']=w.split('@');return `<a class="exw" data-w="${esc(w)}" data-p="${esc(p)}" href="#dict"><b>${esc(w)}</b><span class="rune">${rs(w)}</span>${ipa?`<span class="ipa">${esc(ipa)}</span>`:''}${g?`<span class="gl">${esc(g)}</span>`:''}</a>`}
 const fill=s=>s.replace(/\{\{([^|}]+)\|?([^|}]*)\|?([^}]*)\}\}/g,(_,w,g,i)=>exw(w,g,i));
 const GL=()=>`
-<p class="lead">Old English (also called Anglo-Saxon) looks strange at first, but it is spelled much more consistently than modern English. Once you learn a few extra letters and a handful of rules, you can read any word aloud. This guide follows the conventions of modern student editions and textbooks (Baker; Mitchell &amp; Robinson): macrons (ā) mark long vowels and dots (ċ, ġ) mark “soft” consonants. Medieval scribes wrote neither.</p>
+<p class="lead">Old English (also called Anglo-Saxon) looks strange at first, but it is spelled much more consistently than modern English. Once you learn a few extra letters and a handful of rules, you can read any word aloud. This guide follows the conventions of modern student editions and dictionaries such as Wiktionary: macrons (ā) mark long vowels and dots (ċ, ġ) mark “soft” consonants. Medieval scribes wrote neither.</p>
 <div class="toc card"><b>Contents</b><ol>
 <li><a href="#grammar/letters/alphabet">The alphabet</a></li><li><a href="#grammar/letters/special">The special letters þ ð æ ƿ</a></li><li><a href="#grammar/letters/dots">Dotted ċ and ġ, and missing letters</a></li><li><a href="#grammar/letters/typing">Typing þ, ð and æ</a></li>
 <li><a href="#grammar/letters/silent">Rule 1: every letter is pronounced</a></li><li><a href="#grammar/letters/vowels">Vowels, short and long</a></li><li><a href="#grammar/letters/diphthongs">Diphthongs: ea, eo, ie</a></li>
@@ -138,16 +138,14 @@ const GL=()=>`
 <details><summary>8. What does <b>ƿ</b> stand for, and how do modern editions print it?</summary>It is wynn, /w/, and editions normally print it as <i>w</i>.</details></div>
 
 <h3 id="sources">Sources</h3>
-<ul class="src"><li>Peter S. Baker, <i>Introduction to Old English</i>, 3rd ed. (Wiley-Blackwell, 2012), chapter on pronunciation, and the companion site <a href="https://www.oldenglishaerobics.net/">Old English Aerobics</a>.</li>
-<li>Bruce Mitchell &amp; Fred C. Robinson, <i>A Guide to Old English</i>, 8th ed. (Wiley-Blackwell, 2012), opening sections on spelling and pronunciation.</li>
-<li>Wikipedia, “<a href="https://en.wikipedia.org/wiki/Old_English_phonology">Old English phonology</a>” (drawing on Hogg 1992/2011, Campbell 1959, Fulk 2014, Ringe &amp; Taylor 2014), consulted October 2026, for voicing, velar/palatal and gemination details.</li>
+<ul class="src"><li>Wikipedia, “<a href="https://en.wikipedia.org/wiki/Old_English_phonology">Old English phonology</a>” (drawing on Hogg 1992/2011, Campbell 1959, Fulk 2014, Ringe &amp; Taylor 2014), consulted October 2026, for voicing, velar/palatal and gemination details.</li>
 <li>Wikipedia, “<a href="https://en.wikipedia.org/wiki/Old_English_Latin_alphabet">Old English Latin alphabet</a>”. Wiktionary, “<a href="https://en.wiktionary.org/wiki/Appendix:Old_English_pronunciation">Appendix:Old English pronunciation</a>” (which points to the above).</li>
 <li>Word data and IPA in the linked entries: Wiktionary contributors (CC BY-SA 4.0), via Wiktextract/kaikki.org.</li></ul>
 <p class="note">Pronunciation guides like this describe a reconstructed standard (late West Saxon, c. 1000 AD). Real speech varied by region and century.</p>`;
 async function renderGuide(title,html,anchor){await ready;M.innerHTML=`<div class="crumbs"><a href="#">Home</a> › <a href="#grammar">Grammar</a> › ${title}</div><article class="card guide" style="cursor:default"><h2 class="pgtitle">${title}</h2>${fill(html)}</article>`;
- const gfind=w=>{const k=norm(w);for(let j=0;j<NK.length;j++)if(NK[j]===k&&IDX[j][0]===w&&!/^the letter/.test(IDX[j][2])&&!isFormOf(j))return j;return find(w)};
- M.querySelectorAll('a.exw').forEach(a=>{const i=gfind(a.dataset.w);if(i>=0)a.href='#w/'+i;else{a.classList.add('missing');a.removeAttribute('href')}});
+ const gfind=(w,p)=>{const k=norm(w);if(p){const re=new RegExp('^('+p.replace(/,/g,'|')+')');for(let j=0;j<NK.length;j++)if(NK[j]===k&&IDX[j][0]===w&&re.test(IDX[j][1]))return j}for(let j=0;j<NK.length;j++)if(NK[j]===k&&IDX[j][0]===w&&!/^the letter/.test(IDX[j][2])&&!isFormOf(j))return j;return find(w)};
+ M.querySelectorAll('a.exw').forEach(a=>{const i=gfind(a.dataset.w,a.dataset.p);if(i>=0)a.href='#w/'+i;else{a.classList.add('missing');a.removeAttribute('href')}});
  M.querySelectorAll('button.cp').forEach(b=>b.onclick=()=>{navigator.clipboard?.writeText(b.textContent);const t=b.textContent;b.textContent='✓';setTimeout(()=>b.textContent=t,700)});
  if(anchor){const el=document.getElementById(anchor);el&&el.scrollIntoView()}else scrollTo(0,0)}
 const grammarLetters=a=>renderGuide('Letters &amp; Pronunciation',GL(),a);
-function grammarRoute(h){const p=h.split('/');if(p[1]==='letters')grammarLetters(p[2]);else if(p[1]==='nouns')renderGuide('Nouns, Cases &amp; Gender',GN(),p[2]);else grammarHub()}
+function grammarRoute(h){const p=h.split('/');if(p[1]==='letters')grammarLetters(p[2]);else if(p[1]==='nouns')renderGuide('Nouns, Cases &amp; Gender',GN(),p[2]);else if(p[1]==='pronouns')renderGuide('Pronouns',GP(),p[2]);else grammarHub()}
