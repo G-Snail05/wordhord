@@ -92,3 +92,17 @@ table.wo td{vertical-align:top}
 .passage.verse p{font-family:Georgia,serif;line-height:1.9}
 .bw .hl{display:inline-block;min-width:44%;vertical-align:top}
 @media(max-width:640px){.bw .ln{float:left}.bw .hl{display:block;min-width:0}.bw .cz{display:none}.bw .hl+.cz+.hl{padding-left:2.4em}}
+/* runes hub */
+.hubr{font-size:30px!important;color:#8a5a00!important;margin:0}.rl{margin:0 2px;font-size:1.15em}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:10px 0 18px}
+.rcard{border:1px solid #e3c98f;background:#fffaf0;border-radius:6px;padding:10px 12px;display:flex;gap:12px;align-items:flex-start}
+.rglyph{font-family:"Noto Sans Runic",sans-serif;font-size:56px;line-height:1;color:#7a4e00;min-width:52px;text-align:center}
+.rbody{flex:1;min-width:0;font-size:14px}.rname{margin-bottom:4px}.rnum{color:#555;font-size:12px}.rnl{color:#1b4f7a;font-size:16px}.nodict{color:#666}
+.rcard dl{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;margin:4px 0}.rcard dt{color:#555;font-size:12px}.rcard dd{margin:0}
+.rcard .cp{font-family:"Noto Sans Runic",sans-serif!important;color:#7a4e00;font-size:18px;line-height:1.2;border:1px solid #c9a95a;background:#fff;border-radius:3px;cursor:pointer;padding:0 6px}
+.rnote{font-size:13px;color:#444;margin:4px 0}.rpo summary{cursor:pointer;color:#1b4f7a;font-size:13px}.rpo .oe,.guide .oe{font-family:Georgia,serif;font-style:italic;margin:6px 0}.rpo .tr,.guide .tr{color:#333;margin:4px 0}
+.rtab{border-collapse:collapse;margin:8px 0;font-size:14px;width:100%}.rtab th,.rtab td{border:1px solid #d6e4f0;padding:4px 8px;text-align:left;vertical-align:top}.rtab th{background:#f8fbff}
+.obj{border-left:3px solid #e3c98f;padding:2px 0 2px 12px;margin:12px 0}.obj h4{margin:4px 0;color:#1b4f7a}
+.rfig{margin:8px 0}.rfig img{max-width:100%;height:auto;border-radius:4px;display:block}.rfig figcaption{font-size:12px;color:#555;margin-top:4px}
+.prx{border:1px solid #d6e4f0;border-radius:4px;padding:6px 12px;margin:8px 0}.prx .where{font-size:13px;color:#555;margin:0}.prx .verse{text-align:left;word-break:break-all}
+@media(max-width:600px){.rgrid{grid-template-columns:1fr}.rglyph{font-size:46px;min-width:44px}.rtab{font-size:13px}}
