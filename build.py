@@ -73,6 +73,26 @@ def add_runes(ents):
     for i,e in enumerate(ents[:base]):
       if e['s'] and e['s'][0][0].startswith('the runic character '+g): chip(i,rid,g)
 add_runes(ents)
+
+# --- Curated word lists: resolve every word spec (lemma@pos~gloss) to an entry id; fail loudly if any does not resolve ---
+BADGL=re.compile(r'^(alternative|obsolete|inflection|Runic spelling|[\w/ -]*\b(singular|plural|participle|indicative|subjunctive|imperative|preterite) of )')
+def add_lists(ents):
+  out=[];errs=[]
+  for L in json.load(open('lists_src.json')):
+    ws=[]
+    for spec,note in L['words']:
+      w,_,k=spec.partition('~');w,_,p=w.partition('@')
+      c=[i for i,e in enumerate(ents) if e['w']==w and (not p or e['p'][:4]==p[:4]) and (not k or (e['s'] and k in e['s'][0][0]))]
+      c=[i for i in c if ents[i]['s'] and not BADGL.match(ents[i]['s'][0][0])] or c
+      if not c: errs.append(f"{L['slug']}: {spec} not found");continue
+      g=ents[c[0]]['s'][0][0] if ents[c[0]]['s'] else ''
+      if BADGL.match(g): errs.append(f"{L['slug']}: {spec} has inflection/alt-form gloss: {g}")
+      if c[0] in [x[0] for x in ws]: errs.append(f"{L['slug']}: duplicate {spec}")
+      ws.append([c[0],note] if note else [c[0]])
+    out.append({**{x:L[x] for x in L if x!='words'},'words':ws})
+  if errs: sys.exit('List errors:\n'+'\n'.join(errs))
+  return out
+LISTS=add_lists(ents)
 CH=250;shards={};idx=[];forms={}
 for i,e in enumerate(ents):
   k=f'{i//CH:03d}';shards.setdefault(k,[]).append(e)
@@ -85,4 +105,6 @@ shutil.rmtree('data/e',ignore_errors=True);os.makedirs('data/e')
 for k,v in shards.items(): json.dump(v,open(f'data/e/{k}.json','w'),ensure_ascii=False,separators=(',',':'))
 json.dump(idx,open('data/index.json','w'),ensure_ascii=False,separators=(',',':'))
 json.dump({k:sorted(v) for k,v in forms.items()},open('data/forms.json','w'),ensure_ascii=False,separators=(',',':'))
+json.dump(LISTS,open('data/lists.json','w'),ensure_ascii=False,separators=(',',':'))
+print(len(LISTS),'lists',sum(len(l['words']) for l in LISTS),'list words')
 print(len(idx),'entries',len(shards),'shards',len(forms),'forms')
