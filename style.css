@@ -128,3 +128,4 @@ a.rb{text-decoration:none;color:inherit}a.rb:hover{box-shadow:0 1px 5px #0003}
 .wc b{font-size:16px}.wc b.rune{font-size:24px;color:#8a5a00}.wb{display:flex;gap:4px;align-items:center}.wb .pos{font-size:11px;color:#1e6b40}.wn{font-size:12px;color:#5a4000;font-style:italic}
 .rmw{position:absolute;top:2px;right:2px;padding:0 7px;line-height:20px}
 @media(max-width:600px){.wgrid{grid-template-columns:1fr 1fr;max-height:none}.myl .acts{margin-left:0}}
+.cols{columns:2 240px;font-size:14px}
