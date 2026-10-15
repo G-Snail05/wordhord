@@ -131,3 +131,5 @@ a.rb{text-decoration:none;color:inherit}a.rb:hover{box-shadow:0 1px 5px 0003}
 .cols{columns:2 240px;font-size:14px}
 
 .hform{display:flex;gap:8px;max-width:640px;margin:0 auto}.hform .bigq{flex:1;min-width:0}.hbtn{padding:0 18px;font-size:17px;border-radius:6px;flex:none}
+
+.rl{font-weight:700;text-decoration:underline;text-decoration-color:var(--btn,currentColor);text-decoration-thickness:2px;text-underline-offset:3px}
