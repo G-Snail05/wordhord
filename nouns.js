@@ -5,7 +5,7 @@ function P(cap,cols){const b=f=>f.split('/').map(x=>x.includes('|')?x.replace(/\
  return `<div class="tw"><table class="gt par"><caption>${cap}</caption><tr><th></th>${cols.map(c=>`<th colspan="2">{{${c[0]}|${c[1]}}}<div class="gd">${c[2]}</div></th>`).join('')}</tr>
  <tr><th></th>${cols.map(()=>'<th>Singular</th><th>Plural</th>').join('')}</tr>${R.map((r,i)=>`<tr class="r-${RC[i]}"><th class="c-${RC[i]}">${r}</th>${cols.map(c=>`<td>${b(c[3][i])}</td><td>${b(c[4][i])}</td>`).join('')}</tr>`).join('')}</table></div>`}
 // interlinear gloss: [[oe, lemma or '', gloss, case-tag], ...]
-function IL(words,tr){return `<div class="il">${words.map(([oe,lem,gl,tag])=>`<div class="ilw"><span class="oe">${oe}</span>${lem?`<a class="exw mini" data-w="${lem.split('@')[0]}" data-p="${/^(sē|sēo|þæt|þā|þone|þæs|þǣre|þām|þāra|þȳ|þon|ġē|ēow|man|hwæt|hwā|mīn|þīn|his|þēs|hē|hēo|wē|iċ|wit|þe)$/.test(lem)?'pron,det,arti,part':''}" href="#dict"><span class="rune">${rs(lem)}</span></a>`:''}<span class="ilg">${gl}</span>${tag?`<span class="ilt ${tag.split(' ')[0]}">${tag}</span>`:''}</div>`).join('')}</div><p class="ilx">“${tr}”</p>`}
+function IL(words,tr){return `<div class="il">${words.map(([oe,lem,gl,tag])=>{const lp=lem&&lem.includes('@')?lem.split('@')[1]:null;lem=lem&&lem.split('@')[0];return `<div class="ilw"><span class="oe">${oe}</span>${lem?`<a class="exw mini" data-w="${lem.split('@')[0]}" data-p="${lp||(/^(sē|sēo|þæt|þā|þone|þæs|þǣre|þām|þāra|þȳ|þon|ġē|ēow|man|hwæt|hwā|mīn|þīn|his|þēs|hē|hēo|wē|iċ|wit|þe)$/.test(lem)?'pron,det,arti,part':'')}" href="#dict"><span class="rune">${rs(lem)}</span></a>`:''}<span class="ilg">${gl}</span>${tag?`<span class="ilt ${tag.split(' ')[0]}">${tag}</span>`:''}</div>`}).join('')}</div><p class="ilx">“${tr}”</p>`}
 const GN=()=>`
 <p class="lead">In modern English, word order tells you who did what: <i>the dog bit the man</i> and <i>the man bit the dog</i> mean different things. Old English shows this mainly with the <b>endings</b> of words, and with the form of the word for “the”. Once you can read those endings, sentences that look jumbled start to make sense. This guide explains <b>case</b>, <b>gender</b> and the main noun patterns, all with real words from the dictionary.</p>
 <div class="toc card"><b>Contents</b><ol>
@@ -18,7 +18,7 @@ const GN=()=>`
 <p><b>Case</b> means changing the form of a word to show its job in the sentence: whether it is doing the action, receiving it, owning something, or being given something. Modern English has almost lost case, but you already use its leftovers every day:</p>
 <table class="gt"><tr><th>Modern English</th><th>Old English source</th><th>What survived</th></tr>
 <tr><td><b>he</b> / <b>him</b> / <b>his</b></td><td>{{hē|he}} / {{him|to him}} / {{his|his}}</td><td>Subject <i>he</i>, object <i>him</i>, possessive <i>his</i>. This is a full case system in miniature.</td></tr>
-<tr><td><b>who</b> / <b>whom</b> / <b>whose</b></td><td>{{hwā|who}} / {{hwām|to whom}} / {{hwæs|whose}}</td><td><i>whom</i> comes from the Old English <b>dative</b> hwām. The old accusative, {{hwone|whom (acc.)}}, has not survived.</td></tr>
+<tr><td><b>who</b> / <b>whom</b> / <b>whose</b></td><td>{{hwā|who}} / {{hwām|to whom}} / {{hwæs@pron,det|whose}}</td><td><i>whom</i> comes from the Old English <b>dative</b> hwām. The old accusative, {{hwone|whom (acc.)}}, has not survived.</td></tr>
 <tr><td>the king<b>’s</b> son</td><td>cyning<b>es</b> sunu</td><td>The possessive <b>’s</b> is the Old English genitive ending <b>-es</b> (the apostrophe was added much later).</td></tr>
 <tr><td><b>why</b>; “<b>the</b> more <b>the</b> merrier”</td><td>{{hwȳ|why}}, {{þȳ|by that}}</td><td>Fossils of the <b>instrumental</b> case of <i>who</i> and <i>that</i>.</td></tr></table>
 <p>In Old English, every noun, adjective and pronoun, and the word for “the”, changes like <i>he/him/his</i>. (Full pronoun tables are in the <a href="#grammar/pronouns">Pronouns guide</a>.)</p>
@@ -56,9 +56,9 @@ const GN=()=>`
 <li><b>Look at “the”</b>: sē = masculine, sēo = feminine, þæt = neuter (nominative singular).</li></ul>
 
 <h3 id="article">5. The word for “the”: sē, sēo, þæt</h3>
-<p>{{sē|the, that}} is both “the” and “that”. Its forms are the best clue to a noun’s case and gender, so learning this table pays off more than anything else in this guide.</p>
+<p>{{sē@pron,det,arti|the, that}} is both “the” and “that”. Its forms are the best clue to a noun’s case and gender, so learning this table pays off more than anything else in this guide.</p>
 <div class="tw"><table class="gt art"><tr><th></th><th>Masculine</th><th>Neuter</th><th>Feminine</th><th>Plural (all)</th></tr>
-<tr><th class="c-nom">Nominative</th><td>{{sē}}</td><td>{{þæt}}</td><td>{{sēo}}</td><td>{{þā}}</td></tr>
+<tr><th class="c-nom">Nominative</th><td>{{sē@pron,det,arti}}</td><td>{{þæt@pron,det,arti}}</td><td>{{sēo@pron,det,arti}}</td><td>{{þā@pron,det,arti}}</td></tr>
 <tr><th class="c-acc">Accusative</th><td>{{þone}}</td><td>þæt</td><td>þā</td><td>þā</td></tr>
 <tr><th class="c-gen">Genitive</th><td>{{þæs}}</td><td>þæs</td><td>{{þǣre}}</td><td>{{þāra}}</td></tr>
 <tr><th class="c-dat">Dative</th><td>{{þām}}</td><td>þām</td><td>þǣre</td><td>þām</td></tr>

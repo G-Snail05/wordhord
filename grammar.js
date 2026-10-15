@@ -2,7 +2,7 @@
 const GUIDES=[{id:'letters',title:'Letters & Pronunciation',level:'Beginner',blurb:'The alphabet, the special letters þ ð æ ƿ, and how every sound is pronounced. Start here.',live:true},
 {id:'nouns',title:'Nouns, Cases & Gender',level:'Beginner',blurb:'Why words change their endings: the four cases, three genders, and the word for “the”.',live:true},
 {id:'pronouns',title:'Pronouns',level:'Beginner',blurb:'iċ, þū, wit, hē, hēo, hit: personal, possessive, demonstrative, question and relative pronouns.',live:true},
-{id:'verbs',title:'Strong & Weak Verbs',level:'Intermediate',blurb:'singan, sang, sungon: vowel-changing verbs and the regular -ode verbs.'},
+{id:'verbs',title:'Strong & Weak Verbs',level:'Intermediate',blurb:'singan, sang, sungon: tenses, moods, the seven strong classes, weak -de verbs, and the irregulars.',live:true},
 {id:'adjectives',title:'Adjectives: Strong & Weak',level:'Intermediate',blurb:'Two sets of endings, and when to use each.'},
 {id:'syntax',title:'Word Order & Reading Verse',level:'Intermediate',blurb:'Verb-second order, alliteration and half-lines.'}];
 function grammarHub(){M.innerHTML=`<div class="crumbs"><a href="#">Home</a> › Grammar</div><h2 class="pgtitle">Grammar guides</h2><p>Short, practical guides to reading Old English, written for people who only know modern English. Example words link to their dictionary entries.</p>
@@ -146,6 +146,7 @@ async function renderGuide(title,html,anchor){await ready;M.innerHTML=`<div clas
  const gfind=(w,p)=>{const k=norm(w);if(p){const re=new RegExp('^('+p.replace(/,/g,'|')+')');for(let j=0;j<NK.length;j++)if(NK[j]===k&&IDX[j][0]===w&&re.test(IDX[j][1]))return j}for(let j=0;j<NK.length;j++)if(NK[j]===k&&IDX[j][0]===w&&!/^the letter/.test(IDX[j][2])&&!isFormOf(j))return j;return find(w)};
  M.querySelectorAll('a.exw').forEach(a=>{const i=gfind(a.dataset.w,a.dataset.p);if(i>=0)a.href='#w/'+i;else{a.classList.add('missing');a.removeAttribute('href')}});
  M.querySelectorAll('button.cp').forEach(b=>b.onclick=()=>{navigator.clipboard?.writeText(b.textContent);const t=b.textContent;b.textContent='✓';setTimeout(()=>b.textContent=t,700)});
+ for(const d of M.querySelectorAll('div.vc')){const i=gfind(d.dataset.w,'verb');if(i<0){d.textContent='(table unavailable)';continue}getE(i).then(e=>{const R=vclass(e.f);d.innerHTML=R?`<div class="vch">Full conjugation of <a href="#w/${i}"><b>${esc(e.w)}</b></a> <span class="rune">${rs(e.w)}</span> “${esc(e.s[0]?.[0]||'')}”</div>`+verbTable(R,{nolink:1}):'(no table)'})}
  if(anchor){const el=document.getElementById(anchor);el&&el.scrollIntoView()}else scrollTo(0,0)}
 const grammarLetters=a=>renderGuide('Letters &amp; Pronunciation',GL(),a);
-function grammarRoute(h){const p=h.split('/');if(p[1]==='letters')grammarLetters(p[2]);else if(p[1]==='nouns')renderGuide('Nouns, Cases &amp; Gender',GN(),p[2]);else if(p[1]==='pronouns')renderGuide('Pronouns',GP(),p[2]);else grammarHub()}
+function grammarRoute(h){const p=h.split('/');if(p[1]==='letters')grammarLetters(p[2]);else if(p[1]==='nouns')renderGuide('Nouns, Cases &amp; Gender',GN(),p[2]);else if(p[1]==='pronouns')renderGuide('Pronouns',GP(),p[2]);else if(p[1]==='verbs')renderGuide('Strong &amp; Weak Verbs',GV(),p[2]);else grammarHub()}

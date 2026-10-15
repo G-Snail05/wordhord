@@ -32,8 +32,30 @@ async function search(q){await ready;const raw=q.trim();q=norm(raw);if(!q){M.inn
  if(raw!==$('#q').value.trim())return;
  const r=[...sc].map(([i,s])=>[i,s-(isFormOf(i)?15:0)]).sort((a,b)=>b[1]-a[1]||NK[a[0]].length-NK[b[0]].length).map(x=>x[0]);
  M.innerHTML=`<p>${r.length.toLocaleString()} result${r.length===1?'':'s'}${r.length>MAX?` (showing top ${MAX})`:''}</p>`+r.slice(0,MAX).map(row).join('')}
+// classify (kaikki drops mood tags for ang verbs; recover them from tag + table order) verb forms -> {inf:[],iinf:[],ind:{pres:{1,2,3,pl},past:{...}},subj:{pres:{sg,pl},past:{sg,pl}},imp:{sg,pl},pptc:[],ptc:[]}
+function vclass(f){const R={inf:[],iinf:[],ind:{pres:{1:[],2:[],3:[],pl:[]},past:{1:[],2:[],3:[],pl:[]}},subj:{pres:{sg:[],pl:[]},past:{sg:[],pl:[]}},imp:{sg:[],pl:[]},prp:[],pp:[]};
+ let subj=false,ninf=0,ok=false;
+ for(const [w,t0] of f){const t=t0.split(' ');if(!t0||t.includes('alternative'))continue;const has=x=>t.includes(x);
+  const tense=has('past')?'past':has('present')?'present':null;
+  if(has('infinitive')){(ninf++?R.iinf:R.inf).push(w);continue}
+  if(has('imperative')){if(has('singular'))R.imp.sg.push(w);else if(has('plural'))R.imp.pl.push(w);else if(has('past'))R.pp.push(w);else if(has('present'))R.prp.push(w);ok=true;continue}
+  const p=has('first-person')?1:has('second-person')?2:has('third-person')?3:null;
+  if(p&&tense){R.ind[tense==='past'?'past':'pres'][p].push(w);ok=true;continue}
+  if(!tense)continue;const T=tense==='past'?'past':'pres';
+  if(has('singular')){subj=true;R.subj[T].sg.push(w);continue}
+  if(has('plural')){if(!subj)R.ind[T].pl.push(w);else R.subj[T].pl.push(w)}}
+ return ok?R:null}
+
+const VJ=a=>a.length?a.map(esc).join(', '):'<span class="nf">—</span>';
+function verbTable(R,opt={}){const I=R.ind,S=R.subj,P=[['1','1st sg','iċ','p1'],['2','2nd sg','þū','p2'],['3','3rd sg','hē, hēo, hit','p3'],['pl','plural','wē, ġē, hīe','ppl']];
+ return `<div class="tw"><table class="gt vt"><tr><th></th><th></th><th class="t-pres">Present</th><th class="t-past">Past</th></tr>
+ <tr class="mood"><th colspan="4">Infinitive</th></tr><tr><th colspan="2">infinitive</th><td colspan="2">${VJ(R.inf)}</td></tr>${R.iinf.length?`<tr><th colspan="2">inflected (tō …)</th><td colspan="2">tō ${VJ(R.iinf)}</td></tr>`:''}
+ <tr class="mood"><th colspan="4">Indicative</th></tr>${P.map(([k,l,pr,c])=>`<tr class="${c}"><th>${l}</th><th class="pr">${pr}</th><td>${VJ(I.pres[k])}</td><td>${VJ(I.past[k])}</td></tr>`).join('')}
+ <tr class="mood"><th colspan="4">Subjunctive</th></tr><tr class="p3"><th>singular</th><th class="pr">all persons</th><td>${VJ(S.pres.sg)}</td><td>${VJ(S.past.sg)}</td></tr><tr class="ppl"><th>plural</th><th class="pr">all persons</th><td>${VJ(S.pres.pl)}</td><td>${VJ(S.past.pl)}</td></tr>
+ ${R.imp.sg.length||R.imp.pl.length?`<tr class="mood"><th colspan="4">Imperative</th></tr><tr class="p2"><th>singular</th><th class="pr">(þū)</th><td colspan="2">${VJ(R.imp.sg)}</td></tr><tr class="ppl"><th>plural</th><th class="pr">(ġē)</th><td colspan="2">${VJ(R.imp.pl)}</td></tr>`:''}
+ <tr class="mood"><th colspan="4">Participles</th></tr><tr><th colspan="2">present (-ende)</th><td colspan="2">${VJ(R.prp)}</td></tr><tr><th colspan="2">past</th><td colspan="2">${VJ(R.pp)}</td></tr></table></div>${opt.nolink?'':'<p class="small"><a href="#grammar/verbs">How to read verb tables →</a></p>'}`}
 const ORD=['nominative','accusative','genitive','dative','instrumental'];
-function formsTable(e){const fs=e.f.filter(f=>f[1]).map(f=>({f:f[0],t:f[1].split(' ')}));if(!fs.length)return'<p>No inflection data.</p>';
+function formsTable(e){if(e.p==='verb'){const R=vclass(e.f);if(R)return verbTable(R)}const fs=e.f.filter(f=>f[1]).map(f=>({f:f[0],t:f[1].split(' ')}));if(!fs.length)return'<p>No inflection data.</p>';
  if(e.p!=='verb'&&fs.some(f=>f.t.some(t=>ORD.includes(t)))){const g={};fs.forEach(f=>{const c=ORD.find(o=>f.t.includes(o));if(!c)return;const nm=f.t.includes('plural')?'pl':'sg';const k=c+f.t.filter(t=>!ORD.includes(t)&&t!=='singular'&&t!=='plural').map(t=>' '+t).join('');g[k]=g[k]||{sg:new Set,pl:new Set};g[k][nm].add(f.f)});
   const cls=k=>'r-'+({nominative:'nom',accusative:'acc',genitive:'gen',dative:'dat',instrumental:'ins'}[k.split(' ')[0]]);
   return`<div class="caselegend"><span class="c-nom">nominative = subject</span><span class="c-acc">accusative = object</span><span class="c-gen">genitive = of / ’s</span><span class="c-dat">dative = to / for</span><span class="c-ins">instrumental = by / with</span> <a href="#grammar/nouns/four">what are cases?</a></div><div class="tw"><table class="ftab"><tr><th>Case</th><th>Singular</th><th>Plural</th></tr>${Object.entries(g).sort((a,b)=>ORD.indexOf(a[0].split(' ')[0])-ORD.indexOf(b[0].split(' ')[0])).map(([k,v])=>`<tr class="${cls(k)}"><td>${esc(k)}</td><td>${esc([...v.sg].join(', '))}</td><td>${esc([...v.pl].join(', '))}</td></tr>`).join('')}</table></div>`}
