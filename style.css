@@ -69,3 +69,26 @@ tr.r-ins>td:first-child{color:var(--ins);background:var(--ins-bg);font-weight:60
 .vt th.pr{font-weight:400;font-style:italic;color:#666;font-size:12px}.vt td{min-width:70px}.nf{color:#bbb}.small{font-size:13px}
 .c-pres{color:var(--pres)}.c-past{color:var(--past)}.pp td:nth-child(2){background:var(--pres-bg)}.pp td:nth-child(3),.pp td:nth-child(4){background:var(--past-bg)}.pp td:nth-child(5){background:#f3f3f3}
 .vc{min-height:40px}
+
+/* adjective declension tables */
+.adjblk{margin:10px 0 16px}.adjh{font-weight:700;margin:4px 0 6px;color:#333}
+table.at th.t-sg{background:#eef3f8}table.at th.t-pl{background:#f3eef8}
+table.at th.g-m{color:var(--masc)}table.at th.g-f{color:var(--fem)}table.at th.g-n{color:var(--neut)}
+table.at td{white-space:nowrap}
+.vh-a{background:#fff3c4;border-bottom:2px solid #8a6d00;font-weight:700}
+.bw{font-family:Georgia,serif;font-size:17px;line-height:1.9}.bw .ln{color:#777;font-size:12px;width:2em;display:inline-block}.bw .cz{color:#999;padding:0 .6em}
+/* word order + verse */
+.vfin{background:#e6f4ea;color:#1b5e20;font-weight:700;padding:0 2px;border-radius:2px}.sbj{background:#e3edf7;color:#1f4f7a;padding:0 2px;border-radius:2px}
+table.wo td{vertical-align:top}
+.bwrap{border:1px solid #e3d9c2;background:#fffdf7;border-radius:6px;padding:10px 12px;margin:12px 0}
+.bwbar{text-align:right;margin-bottom:4px}.bwrap .rt{font-size:13px;padding:3px 8px;border:1px solid #b48a3c;background:#fff6e0;color:#5a3d00;border-radius:4px;cursor:pointer}
+.bl{padding:4px 0;border-bottom:1px dotted #eadfc6}.bl:last-child{border:0}
+.st{background:#fff3c4;color:#7a3e00;font-weight:700;border-bottom:2px solid #b07a00}
+.stv .oe{font-weight:700}
+.blg summary{font-size:12px;color:#6b5a2e;cursor:pointer;display:inline-block}.blg .il{margin-top:6px}
+.czw{align-self:center;color:#999;font-size:20px;padding:0 4px}
+.bwrap.rmode .lt{display:none}.bwrap.rmode .rn{display:inline;font-family:'Noto Sans Runic',sans-serif;color:#7a4e00}.rn{display:none}
+.bwrap.rmode .ilw .oe .rn{display:inline}
+.passage.verse p{font-family:Georgia,serif;line-height:1.9}
+.bw .hl{display:inline-block;min-width:44%;vertical-align:top}
+@media(max-width:640px){.bw .ln{float:left}.bw .hl{display:block;min-width:0}.bw .cz{display:none}.bw .hl+.cz+.hl{padding-left:2.4em}}
