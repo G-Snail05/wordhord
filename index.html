@@ -8,4 +8,4 @@
 <script src="grammar.js"></script><script src="nouns.js"></script><script src="pronouns.js"></script><script src="verbs.js"></script><script src="adjectives.js"></script><script src="order.js"></script><script src="runes.js"></script>
 <script>function setTT(){var d=document.documentElement.dataset.theme==="dark",b=document.getElementById("tt");b.textContent=d?"☀":"☾";b.setAttribute("aria-label",d?"Switch to light theme":"Switch to dark theme");b.title=b.getAttribute("aria-label");b.setAttribute("aria-pressed",d)}
 function toggleTheme(){var t=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=t;try{localStorage.oeTheme=t}catch(e){}document.querySelectorAll('meta[name=theme-color]').forEach(function(m){m.removeAttribute("media");m.content=t==="dark"?"#0f0a06":"#4a2c17"});setTT()}setTT();</script>
-<script src="lists.js"></script><script src="quiz.js"></script><script src="app.js"></script></body></html>
+<script src="lists.js"></script><script src="quiz.js"></script><script src="grammar-quiz.js"></script><script src="app.js"></script></body></html>

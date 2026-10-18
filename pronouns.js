@@ -129,6 +129,7 @@ ${IL([['Man','man','someone/people','nom'],['sæġde','seċġan','said',''],['þ
 <details><summary>9. What does <i>Man sæġde…</i> mean?</summary>“People said… / It was said…”. <b>man</b> is the indefinite “one”.</details>
 <details><summary>10. Give the nominative of “this” for a feminine noun.</summary><b>þēos</b> (masc. þēs, neut. þis).</details></div>
 
+<div class="card gqtest"><b>Test yourself</b><p>Drill the pronoun and article tables from this guide:</p><p class="gqlinks"><a class="btn" href="#quiz/case/10/all/pron">Name that form</a> <a class="btn" href="#quiz/fill/all/all/pron">Fill the table</a></p></div>
 <h3 id="sources">Sources</h3>
 <ul class="src"><li>Wikipedia, “<a href="https://en.wikipedia.org/wiki/Old_English_grammar">Old English grammar</a>”, sections Personal pronouns, Interrogative pronouns, Demonstratives, Articles, Adjectives (strong declension, used for the possessive endings), Gender (the <i>snāw/fȳr</i> sentences) and Relative and subordinate clauses. Consulted October 2026.</li>
 <li>Wiktionary (English edition), the Old English entries for iċ, wit, ġit, wē, ġē, hē, hēo, hit, hīe, mīn, þīn, ūre, ēower, uncer, incer, sīn, sē, þēs, hwā, hwæt, hwȳ, hwī, hwelċ, hwæþer, þe, self, man, ǣlċ, ǣniġ, nān, sum and āwiht, including their declension tables, usage notes and quotations (via the Wiktextract/kaikki.org data, CC BY-SA 4.0). Every form in the tables here was checked against these.</li>

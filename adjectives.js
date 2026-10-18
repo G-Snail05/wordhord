@@ -127,6 +127,7 @@ ${IL([['wīslīċe','wīslīċe@adv','wisely',''],['lange','lange@adv','for a lo
 <details><summary>9. What are the nominative forms of “two” for each gender?</summary><b>twēġen</b> (masc.), <b>twā</b> (fem.), <b>tū</b> or <b>twā</b> (neut.).</details>
 <details><summary>10. How do you say 21?</summary><b>ān and twēntiġ</b>, “one and twenty”.</details></div>
 
+<div class="card gqtest"><b>Test yourself</b><p>Drill strong adjective endings with words from the dictionary:</p><p class="gqlinks"><a class="btn" href="#quiz/case/10/all/adj">Name that form</a> <a class="btn" href="#quiz/fill/10/all/adj">Fill the table</a></p></div>
 <h3 id="sources">Sources</h3>
 <ul class="src"><li>Wikipedia, “<a href="https://en.wikipedia.org/wiki/Old_English_grammar">Old English grammar</a>”, sections Adjectives (strong and weak declension of <i>cwic</i>, when each is used, irregularities, degree) and nd-stems (on the <i>-end</i> nouns). The lead section notes that participles “sometimes” agree. Consulted October 2026.</li>
 <li>Wiktionary (English edition), via the Wiktextract/kaikki.org data (CC BY-SA 4.0): the declension tables, comparatives and superlatives of every linked adjective, the numerals and ordinals, and the suffixes <i>-e</i> (“forming adverbs from adjectives”), <i>-līċe</i> and <i>-ende</i>. All live tables on this page come from these data, and the forms in the hand-written tables and the passage were checked against them.</li></ul>
