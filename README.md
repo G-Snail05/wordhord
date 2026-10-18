@@ -1,6 +1,6 @@
 # Wordhord ᚹᚩᚱᛞᚻᚩᚱᛞ
 
-An Old English → Modern English dictionary inspired by takoboto.jp: search by Old English (with or without accents), modern English meaning, or any inflected form; entry pages with inflection tables, example sentences, etymology and Anglo-Saxon futhorc rune transliterations; personal word lists, curated lists and flashcards.
+An Old English → Modern English dictionary inspired by takoboto.jp: search by Old English (with or without accents), modern English meaning, or any inflected form; entry pages with inflection tables, example sentences, etymology and Anglo-Saxon futhorc rune transliterations; personal word lists, curated lists, flashcards and multiple-choice word-meaning quizzes (#quiz).
 
 Live site: https://g-snail05.github.io/wordhord/
 
