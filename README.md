@@ -2,7 +2,7 @@
 
 An Old English → Modern English dictionary inspired by takoboto.jp: search by Old English (with or without accents), modern English meaning, or any inflected form; entry pages with inflection tables, example sentences, etymology and Anglo-Saxon futhorc rune transliterations; personal word lists, curated lists, flashcards and multiple-choice word-meaning quizzes (#quiz).
 
-Live site: https://g-snail05.github.io/wordhord/
+Live site: https://wordhord.co.uk/ (also at https://g-snail05.github.io/wordhord/, which redirects)
 
 It is a fully static site (no server). The ~68,500 entries are split into a search index (`data/index.json`), an inflected-form index (`data/forms.json`) and 274 lazily loaded entry shards (`data/e/*.json`). `build.py` regenerates `data/` from the kaikki.org Old English JSONL:
 
