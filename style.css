@@ -193,3 +193,4 @@ button.qopt:disabled{cursor:default}button.qopt.dim{opacity:.75}
 /* About: Made by */
 .madeby{margin:14px 0 18px;padding:12px 14px;border:1px solid var(--kfd6e4f0,#d6c39a);border-left:5px solid var(--link,#7c2619);border-radius:6px;background:var(--kff8fbff,transparent)}.madeby h3{margin:0 0 6px}.madeby p{margin:6px 0}
 .mbl{list-style:none;padding:0;margin:8px 0;display:grid;gap:6px}.mbl li{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;min-height:32px}.mbl a{font-size:18px;word-break:break-all}.mbk{display:inline-block;min-width:58px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;opacity:.8}
+.fixl{margin:18px 0 0;padding-top:8px;border-top:1px dashed var(--kfcccccc,#ccc);font-size:14px;text-align:right}.fixl a{display:inline-block;padding:6px 2px;opacity:.85}.fixl a:hover{opacity:1}.fbsec{margin-top:0}
