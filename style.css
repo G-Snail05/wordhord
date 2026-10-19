@@ -190,3 +190,6 @@ button.qopt:disabled{cursor:default}button.qopt.dim{opacity:.75}
 .qres mark{background:var(--okbg);color:var(--okfg);font-weight:700;padding:0 2px;border-radius:3px}
 .gqmiss li{margin:4px 0}.gqtest{cursor:default;margin:18px 0}.gqlinks{display:flex;flex-wrap:wrap;gap:8px}
 @media(max-width:600px){.gqmodes span{min-height:44px;padding:6px 8px}.gqgrid{grid-template-columns:auto 1fr 1fr;gap:6px}.gqrl{font-size:14px;padding:0 6px}.gqt th,.gqt td{padding:4px 5px;font-size:15px}.gqin input{width:4.2em}}
+/* About: Made by */
+.madeby{margin:14px 0 18px;padding:12px 14px;border:1px solid var(--kfd6e4f0,#d6c39a);border-left:5px solid var(--link,#7c2619);border-radius:6px;background:var(--kff8fbff,transparent)}.madeby h3{margin:0 0 6px}.madeby p{margin:6px 0}
+.mbl{list-style:none;padding:0;margin:8px 0;display:grid;gap:6px}.mbl li{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;min-height:32px}.mbl a{font-size:18px;word-break:break-all}.mbk{display:inline-block;min-width:58px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;opacity:.8}
