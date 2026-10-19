@@ -88,8 +88,11 @@ async function entry(i){await ready;if(!IDX[i]){M.innerHTML='<p>Entry not found.
 <div class="pos">${esc(e.p)} ${e.i?'· '+esc(e.i):''}</div><ol>${e.s.map(s=>`<li>${esc(s[0])}${s[1].map(x=>`<div class="ex">${esc(x[0])}${x[1]?`<br><i>${esc(x[1])}</i>`:''}</div>`).join('')}</li>`).join('')}</ol>
 <select id="ls" aria-label="List">${UL().map(k=>`<option value="${k.id}">${esc(k.name)}</option>`)}</select><button onclick="addTo(${i})">+ Add to list</button>
 <h3>Runes (Anglo-Saxon futhorc)</h3><div class="runes">${runes(e.w).map(rtile).join('')}</div>
-<h3>Etymology / components</h3><p>${esc(e.y)||'—'}</p>${e.d.length?`<p><b>Derived:</b> ${e.d.map(x=>`<a href="#" onclick="$('#q').value=this.textContent;location.hash='';search(this.textContent);return false">${esc(x)}</a>`).join(', ')}</p>`:''}
+<h3>Etymology / components</h3><p>${esc(e.y)||'—'}</p>${e.d.length?`<p><b>Derived:</b> ${e.d.map(dlink).join(', ')}</p>`:''}
 <h3>All forms</h3>${/^(sē|þæt|sēo)$/.test(e.w)&&/arti|det|pron/.test(e.p)?'<p>See the colour-coded <a href="#grammar/nouns/article">table of sē / sēo / þæt</a> in the Nouns guide.</p>':''}${formsTable(e)}${fixLink(`${e.w} (${e.p})`,[`${FBU}#w/${i}`,'',`Headword: ${e.w}`,`Part of speech: ${e.p}`,'','What’s wrong / suggestion:',''])}</div>`}
+// Derived-word link: straight to the entry whose headword matches (ignoring macrons/dots); otherwise a dictionary search for that text
+function dtarget(x){const w=String(x).replace(/^\*/,'').trim();if(!w)return null;const j=find(w);return j>=0&&NK[j]===norm(w)&&IDX[j][1]!=='rune'?j:null}
+function dlink(x){const j=dtarget(x);return j!=null?`<a href="#w/${j}" title="${esc(IDX[j][0])}: ${esc(IDX[j][2])}">${esc(x)}</a>`:`<a class="dsrch" href="#dict/${esc(encodeURIComponent(x))}" title="Not in the dictionary as a headword: search for it">${esc(x)}</a>`}
 function addTo(i){const u=UL(),l=u.find(x=>x.id===$('#ls').value);if(!l)return;if(!l.words.some(x=>uid(x)===i))l.words.push([IDX[i][0],IDX[i][1],i]);SUL(u);alert('Added to '+l.name)}
 let deck=[],k=0,flip=0,deckName='';
 function randomReal(){for(let t=0;t<50;t++){const i=Math.floor(Math.random()*IDX.length);if(IDX[i][2]&&!isFormOf(i))return i}return Math.floor(Math.random()*IDX.length)}
